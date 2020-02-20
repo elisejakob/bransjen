@@ -18,7 +18,7 @@ export const query = graphql`
       description
       keywords
     }
-    projects: allSanitySampleProject(
+    projects: allSanityProject(
       limit: 6
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
@@ -90,9 +90,9 @@ const IndexPage = props => {
         <h1 hidden>Welcome to {site.title}</h1>
         {projectNodes && (
           <ProjectPreviewGrid
-            title='Latest projects'
+            title='Siste prosjekter'
             nodes={projectNodes}
-            browseMoreHref='/archive/'
+            browseMoreHref='/prosjekter/'
           />
         )}
       </Container>

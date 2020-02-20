@@ -1,6 +1,12 @@
 export default {
   widgets: [
-    {name: 'structure-menu'},
+    {
+      name: 'structure-menu',
+      options: {
+        title:
+          'Rediger innhold',
+      }
+    },
     {
       name: 'project-info',
       options: {
@@ -8,8 +14,8 @@ export default {
           {
             name: 'netlify',
             options: {
-              description:
-                'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
+              title:
+                'Publisert noe nytt? Husk å klikke på deploy!',
               sites: [
                 {
                   buildHookId: '5e4a5bdf6825cf4fa065e14b',
@@ -44,7 +50,7 @@ export default {
     {name: 'project-users', layout: {height: 'auto'}},
     {
       name: 'document-list',
-      options: {title: 'Recent projects', order: '_createdAt desc', types: ['sampleProject']},
+      options: {title: 'Recent projects', order: '_createdAt desc', types: ['project']},
       layout: {width: 'medium'}
     }
   ]
