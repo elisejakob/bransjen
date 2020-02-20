@@ -1,7 +1,7 @@
 export default {
   name: 'bioPortableText',
   type: 'array',
-  title: 'Excerpt',
+  title: 'Ingress',
   of: [
     {
       title: 'Block',
@@ -11,8 +11,7 @@ export default {
       marks: {
         decorators: [
           {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
-          {title: 'Code', value: 'code'}
+          {title: 'Emphasis', value: 'em'}
         ],
         annotations: [
           {

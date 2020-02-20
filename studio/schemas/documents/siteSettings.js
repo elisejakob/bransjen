@@ -12,19 +12,19 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Tittel'
     },
     {
       name: 'description',
       type: 'text',
-      title: 'Description',
-      description: 'Describe your portfolio for search engines and social media.'
+      title: 'Beskrivelse',
+      description: 'Beskrivelse som dukker opp i søkemotorer og sosiale medier.'
     },
     {
       name: 'keywords',
       type: 'array',
-      title: 'Keywords',
-      description: 'Add keywords that describes your portfolio.',
+      title: 'Stikkord',
+      description: 'Stikkord som brukes av søkemotorer.',
       of: [{type: 'string'}],
       options: {
         layout: 'tags'

@@ -2,53 +2,37 @@ import {format} from 'date-fns'
 
 export default {
   name: 'project',
-  title: 'Project',
+  title: 'Prosjekt',
   type: 'document',
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Tittel',
       type: 'string'
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Some frontend will require a slug to be set to be able to show the project',
+      description: 'Slutten på URLen til prosjektet, eks. bransjen.no/prosjekter/slug-kommer-her',
       options: {
         source: 'title',
         maxLength: 96
       }
     },
     {
-      name: 'publishedAt',
-      title: 'Published at',
-      description: 'You can use this field to schedule projects where you show them',
-      type: 'datetime'
-    },
-    {
       name: 'excerpt',
-      title: 'Excerpt',
+      title: 'Ingress',
       type: 'simplePortableText'
     },
     {
-      name: 'startedAt',
-      title: 'Started at',
-      type: 'datetime'
-    },
-    {
-      name: 'endedAt',
-      title: 'Ended at',
-      type: 'datetime'
-    },
-    {
       name: 'mainImage',
-      title: 'Main image',
+      title: 'Hovedbilde',
       type: 'figure'
     },
     {
       name: 'categories',
-      title: 'Categories',
+      title: 'Kategorier',
       type: 'array',
       of: [{type: 'reference', to: {type: 'category'}}]
     },
@@ -59,7 +43,7 @@ export default {
     },
     {
       name: 'relatedProjects',
-      title: 'Related projects',
+      title: 'Lignende prosjekter',
       type: 'array',
       of: [{type: 'reference', to: {type: 'project'}}]
     }
@@ -67,17 +51,13 @@ export default {
   preview: {
     select: {
       title: 'title',
-      publishedAt: 'publishedAt',
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare({title = 'No title', publishedAt, slug = {}, media}) {
-      const dateSegment = format(publishedAt, 'YYYY/MM')
-      const path = `/${dateSegment}/${slug.current}/`
+    prepare({title = 'No title', media}) {
       return {
         title,
-        media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
+        media
       }
     }
   }

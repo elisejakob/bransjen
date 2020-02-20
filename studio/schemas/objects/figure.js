@@ -1,13 +1,13 @@
 export default {
   name: 'figure',
-  title: 'Image',
+  title: 'Bilde',
   type: 'image',
   options: {
     hotspot: true
   },
   fields: [
     {
-      title: 'Caption',
+      title: 'Bildetekst',
       name: 'caption',
       type: 'string',
       options: {
@@ -17,9 +17,8 @@ export default {
     {
       name: 'alt',
       type: 'string',
-      title: 'Alternative text',
-      validation: Rule => Rule.error('You have to fill out the alternative text.').required(),
-      description: 'Important for SEO and accessiblity.',
+      title: 'Alternativ tekst',
+      description: 'Viktig for universell utforming og SEO! Beskriv kort hva bildet viser.',
       options: {
         isHighlighted: true
       }
