@@ -17,7 +17,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Slutten på URLen til prosjektet, eks. bransjen.no/prosjekter/slug-kommer-her',
+      description: 'Slutten på URLen, eks. bransjen.no/skisseboka/slug-kommer-her',
       options: {
         source: 'title',
         maxLength: 96
@@ -38,23 +38,6 @@ export default {
       name: 'mainImage',
       title: 'Hovedbilde',
       type: 'figure'
-    },
-    {
-      name: 'categories',
-      title: 'Kategorier',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
-    },
-    {
-      name: 'body',
-      title: 'Body',
-      type: 'projectPortableText'
-    },
-    {
-      name: 'relatedProjects',
-      title: 'Lignende prosjekter',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'project'}}]
     }
   ],
   preview: {
@@ -65,7 +48,6 @@ export default {
       publishedAt: 'publishedAt'
     },
     prepare({title = 'No title', publishedAt, slug = {}, media}) {
-      console.log(publishedAt)
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {

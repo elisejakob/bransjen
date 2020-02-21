@@ -52,7 +52,6 @@ export default {
       publishedAt: 'publishedAt'
     },
     prepare({title = 'No title', publishedAt, slug = {}, media}) {
-      console.log(publishedAt)
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
