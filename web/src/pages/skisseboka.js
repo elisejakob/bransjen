@@ -11,7 +11,7 @@ import {responsiveTitle1} from '../components/typography.module.css'
 
 export const query = graphql`
   query SketchPageQuery {
-    projects: allSanityProject(
+    sketch: allSanitySketch(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
@@ -46,7 +46,7 @@ const ProjectPage = props => {
     )
   }
   const projectNodes =
-    data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    data && data.sketch && mapEdgesToNodes(data.sketch).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
       <SEO title='Skisseboka' />

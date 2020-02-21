@@ -11,7 +11,7 @@ import {responsiveTitle1} from '../components/typography.module.css'
 
 export const query = graphql`
   query NewsPageQuery {
-    projects: allSanityProject(
+    news: allSanityNews(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
@@ -19,17 +19,8 @@ export const query = graphql`
       edges {
         node {
           id
-          mainImage {
-            asset {
-              _id
-            }
-            alt
-          }
           title
           _rawExcerpt
-          slug {
-            current
-          }
         }
       }
     }
@@ -46,7 +37,7 @@ const ProjectPage = props => {
     )
   }
   const projectNodes =
-    data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+    data && data.news && mapEdgesToNodes(data.news).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
       <SEO title='Bransjenytt' />
