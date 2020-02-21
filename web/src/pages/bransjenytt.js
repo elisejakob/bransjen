@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
+import Newsfeed from '../components/newsfeed'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
@@ -20,14 +20,13 @@ export const query = graphql`
         node {
           id
           title
-          _rawExcerpt
         }
       }
     }
   }
 `
 
-const ProjectPage = props => {
+const NewsPage = props => {
   const {data, errors} = props
   if (errors) {
     return (
@@ -36,17 +35,28 @@ const ProjectPage = props => {
       </Layout>
     )
   }
-  const projectNodes =
-    data && data.news && mapEdgesToNodes(data.news).filter(filterOutDocsWithoutSlugs)
+
+  useEffect(() => {
+    document.body.classList.add('bransjenytt');
+    return () => {
+      document.body.classList.remove('bransjenytt');
+    };
+  });
+
+  const newsNodes =
+    data && data.news && mapEdgesToNodes(data.news)
+
+  console.log(newsNodes);
+
   return (
     <Layout>
       <SEO title='Bransjenytt' />
       <Container>
         <h1 className={responsiveTitle1}>Bransjenytt</h1>
-        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
+        {newsNodes && newsNodes.length > 0 && <Newsfeed nodes={newsNodes} />}
       </Container>
     </Layout>
   )
 }
 
-export default ProjectPage
+export default NewsPage
