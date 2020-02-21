@@ -4,6 +4,9 @@ export default {
   name: 'project',
   title: 'Prosjekt',
   type: 'document',
+  initialValue: () => ({
+    publishedAt: new Date().toISOString()
+  }),
   fields: [
     {
       name: 'title',
@@ -19,6 +22,12 @@ export default {
         source: 'title',
         maxLength: 96
       }
+    },
+    {
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime',
+      hidden: true
     },
     {
       name: 'excerpt',
@@ -52,12 +61,17 @@ export default {
     select: {
       title: 'title',
       slug: 'slug',
-      media: 'mainImage'
+      media: 'mainImage',
+      publishedAt: 'publishedAt'
     },
-    prepare({title = 'No title', media}) {
+    prepare({title = 'No title', publishedAt, slug = {}, media}) {
+      console.log(publishedAt)
+      const dateSegment = format(publishedAt, 'YYYY/MM')
+      const path = `/${dateSegment}/${slug.current}/`
       return {
         title,
-        media
+        media,
+        subtitle: publishedAt ? path : 'Missing publishing date'
       }
     }
   }

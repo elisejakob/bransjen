@@ -32,13 +32,13 @@ async function createProjectPages (graphql, actions, reporter) {
     .forEach(edge => {
       const id = edge.node.id
       const slug = edge.node.slug.current
-      const path = `/project/${slug}/`
+      const path = `/prosjekt/${slug}/`
 
       reporter.info(`Creating project page: ${path}`)
 
       createPage({
         path,
-        component: require.resolve('./src/templates/project.js'),
+        component: require.resolve('./src/templates/prosjekt.js'),
         context: {id}
       })
     })
