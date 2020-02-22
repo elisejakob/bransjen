@@ -30,19 +30,15 @@ export default {
       hidden: true
     },
     {
-      name: 'excerpt',
-      title: 'Ingress',
-      type: 'simplePortableText'
+      name: 'quote',
+      title: 'Sitat',
+      type: 'text',
+      rows: 3
     },
     {
-      name: 'source',
       title: 'Kilde',
-      type: 'string'
-    },
-    {
-      name: 'sourceUrl',
-      title: 'Kilde-URL',
-      type: 'string'
+      name: 'source',
+      type: 'source'
     }
   ],
   preview: {

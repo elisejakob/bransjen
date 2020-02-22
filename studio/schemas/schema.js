@@ -12,7 +12,7 @@ import news from './documents/news'
 import siteSettings from './documents/siteSettings'
 
 // Object types
-import bioPortableText from './objects/bioPortableText'
+import source from './objects/source'
 import figure from './objects/figure'
 import projectPortableText from './objects/projectPortableText'
 import simplePortableText from './objects/simplePortableText'
@@ -24,7 +24,7 @@ export default createSchema({
   // Then proceed to concatenate our our document type to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     // When added to this list, object types can be used as { type: 'typename' } in other document schemas
-    bioPortableText,
+    source,
     figure,
     projectPortableText,
     simplePortableText,

@@ -20,6 +20,11 @@ export const query = graphql`
         node {
           id
           title
+          quote
+          source {
+            text
+            url
+          }
         }
       }
     }

@@ -5,12 +5,12 @@ import styles from './newsfeed.module.css'
 function Newsfeed (props) {
   return (
     <div className={styles.root}>
-      {props.title && <h2 className={styles.headline}>{props.title}</h2>}
-      <ul className={styles.grid}>
+      <ul className={styles.feed}>
         {props.nodes &&
           props.nodes.map(node => (
             <li key={node.id}>
-              <h3>{node.title}</h3>
+              <blockquote className={styles.quote}>{node.quote}</blockquote>
+              <a href={node.source.url} target="_blank">{node.source.text}</a>
             </li>
           ))}
       </ul>
