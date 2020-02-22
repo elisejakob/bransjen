@@ -23,3 +23,8 @@
   font-family: serif;
   line-height: 1.2;
 }
+
+.source {
+  color: inherit;
+  text-decoration: none;
+}

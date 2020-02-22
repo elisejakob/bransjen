@@ -10,7 +10,7 @@ function Newsfeed (props) {
           props.nodes.map(node => (
             <li key={node.id}>
               <blockquote className={styles.quote}>{node.quote}</blockquote>
-              <a href={node.source.url} target="_blank">{node.source.text}</a>
+              <a href={node.source.url} target="_blank" className={styles.source}>{node.source.text}</a>
             </li>
           ))}
       </ul>
