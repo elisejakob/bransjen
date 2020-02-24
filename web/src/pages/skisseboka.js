@@ -2,7 +2,7 @@ import React from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
+import Sketchbook from '../components/sketchbook'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
@@ -36,7 +36,7 @@ export const query = graphql`
   }
 `
 
-const ProjectPage = props => {
+const SketchbookPage = props => {
   const {data, errors} = props
   if (errors) {
     return (
@@ -45,17 +45,17 @@ const ProjectPage = props => {
       </Layout>
     )
   }
-  const projectNodes =
+  const sketchNodes =
     data && data.sketch && mapEdgesToNodes(data.sketch).filter(filterOutDocsWithoutSlugs)
   return (
     <Layout>
       <SEO title='Skisseboka' />
       <Container>
         <h1 className={responsiveTitle1}>Skisseboka</h1>
-        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
+        {sketchNodes && sketchNodes.length > 0 && <Sketchbook nodes={sketchNodes} />}
       </Container>
     </Layout>
   )
 }
 
-export default ProjectPage
+export default SketchbookPage
