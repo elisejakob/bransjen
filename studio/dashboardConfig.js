@@ -8,6 +8,12 @@ export default {
       }
     },
     {
+      name: 'document-list',
+      options: {title: 'Recent projects', order: '_createdAt desc', types: ['project']},
+      layout: {width: 'medium'}
+    },
+    {name: 'project-users', layout: {height: 'auto'}},
+    {
       name: 'project-info',
       options: {
         __experimental_before: [
@@ -15,7 +21,7 @@ export default {
             name: 'netlify',
             options: {
               title:
-                'Publisert noe nytt? Husk å klikke på deploy!',
+                'Server status',
               sites: [
                 {
                   buildHookId: '5e4a5bdf6825cf4fa065e14b',
@@ -46,12 +52,6 @@ export default {
           }
         ]
       }
-    },
-    {name: 'project-users', layout: {height: 'auto'}},
-    {
-      name: 'document-list',
-      options: {title: 'Recent projects', order: '_createdAt desc', types: ['project']},
-      layout: {width: 'medium'}
     }
   ]
 }
