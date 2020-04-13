@@ -14,7 +14,6 @@ import siteSettings from './documents/siteSettings'
 // Object types
 import source from './objects/source'
 import figure from './objects/figure'
-import projectPortableText from './objects/projectPortableText'
 import simplePortableText from './objects/simplePortableText'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -26,7 +25,6 @@ export default createSchema({
     // When added to this list, object types can be used as { type: 'typename' } in other document schemas
     source,
     figure,
-    projectPortableText,
     simplePortableText,
     // The following are document types which will appear in the studio.
     category,

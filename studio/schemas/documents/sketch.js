@@ -30,11 +30,6 @@ export default {
       hidden: true
     },
     {
-      name: 'excerpt',
-      title: 'Ingress',
-      type: 'simplePortableText'
-    },
-    {
       name: 'mainImage',
       title: 'Hovedbilde',
       type: 'figure'

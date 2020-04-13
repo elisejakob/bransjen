@@ -46,11 +46,6 @@ export default {
       of: [{type: 'reference', to: {type: 'category'}}]
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'projectPortableText'
-    },
-    {
       name: 'relatedProjects',
       title: 'Lignende prosjekter',
       type: 'array',

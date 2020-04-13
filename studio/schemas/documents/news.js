@@ -17,7 +17,7 @@ export default {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      description: 'Slutten på URLen til prosjektet, eks. bransjen.no/prosjekter/slug-kommer-her',
+      description: 'Slutten på URLen til nyheten, eks. bransjen.no/prosjekter/slug-kommer-her',
       options: {
         source: 'title',
         maxLength: 96

@@ -2,6 +2,7 @@ import {Link} from 'gatsby'
 import React from 'react'
 import {cn, buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
+import SketchModal from './sketch-modal'
 
 import styles from './sketchbook.module.css'
 
@@ -23,6 +24,7 @@ function Sketchbook (props) {
             </li>
           ))}
       </ul>
+      <SketchModal />
     </div>
   )
 }

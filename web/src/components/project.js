@@ -3,13 +3,13 @@ import React from 'react'
 import {Link} from 'gatsby'
 import {buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
-import BlockContent from './block-content'
+import BlockText from './block-text'
 import Container from './container'
 
 import styles from './project.module.css'
 
 function Project (props) {
-  const {_rawBody, title, categories, mainImage, publishedAt, relatedProjects} = props
+  const {_rawExcerpt, title, categories, mainImage, publishedAt, relatedProjects} = props
   return (
     <article className={styles.root}>
       {props.mainImage && mainImage.asset && (
@@ -28,7 +28,7 @@ function Project (props) {
         <div className={styles.grid}>
           <div className={styles.mainContent}>
             <h1 className={styles.title}>{title}</h1>
-            {_rawBody && <BlockContent blocks={_rawBody || []} />}
+            {_rawExcerpt && <BlockText blocks={_rawExcerpt || []} />}
           </div>
           <aside className={styles.metaContent}>
             {publishedAt && (
