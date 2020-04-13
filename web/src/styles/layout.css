@@ -25,3 +25,7 @@ body > div > div {
 body.bransjenytt {
   background: linear-gradient(rgb(124, 255, 168), rgb(132, 251, 255), rgb(255, 195, 139), rgb(255, 159, 199), rgb(255, 255, 125), rgb(187, 128, 255));
 }
+
+p {
+  max-width: 32rem;
+}
