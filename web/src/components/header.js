@@ -27,6 +27,9 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
           <li>
             <Link to='/bransjenytt/'>Bransjenytt</Link>
           </li>
+          <li>
+            <Link to='/om/'>Om Bransjen</Link>
+          </li>
         </ul>
       </nav>
     </div>

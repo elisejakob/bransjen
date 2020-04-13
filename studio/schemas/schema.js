@@ -10,6 +10,7 @@ import project from './documents/project'
 import sketch from './documents/sketch'
 import news from './documents/news'
 import siteSettings from './documents/siteSettings'
+import about from './documents/about'
 
 // Object types
 import source from './objects/source'
@@ -31,6 +32,7 @@ export default createSchema({
     project,
     sketch,
     news,
-    siteSettings
+    siteSettings,
+    about
   ])
 })
