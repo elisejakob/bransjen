@@ -7,8 +7,6 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
 
-import {responsiveTitle1} from '../components/typography.module.css'
-
 export const query = graphql`
   query NewsPageQuery {
     news: allSanityNews(
@@ -57,7 +55,7 @@ const NewsPage = props => {
     <Layout>
       <SEO title='Bransjenytt' />
       <Container>
-        <h1 className={responsiveTitle1}>Bransjenytt</h1>
+        <h1>Bransjenytt</h1>
         {newsNodes && newsNodes.length > 0 && <Newsfeed nodes={newsNodes} />}
       </Container>
     </Layout>

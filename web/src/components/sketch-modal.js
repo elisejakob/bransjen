@@ -5,7 +5,7 @@ import {imageUrlFor} from '../lib/image-url'
 function SketchModal (props) {
   return (
     <div>
-      Hello Modal
+      :)
     </div>
   )
 }

@@ -6,8 +6,6 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import BlockText from '../components/block-text'
 
-import {responsiveTitle1} from '../components/typography.module.css'
-
 export const query = graphql`
   query AboutPageQuery {
     site: sanityAbout(_id: {regex: "/(drafts.|)about/"}) {
@@ -40,7 +38,6 @@ const AboutPage = props => {
     <Layout>
       <SEO title={site.title} />
       <Container>
-        <h1 className={responsiveTitle1}>{ site.title }</h1>
         {site._rawExcerpt && <BlockText blocks={site._rawExcerpt || []} />}
       </Container>
     </Layout>

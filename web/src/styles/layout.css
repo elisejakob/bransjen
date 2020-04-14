@@ -1,18 +1,21 @@
-@import './custom-properties.css';
-
 html {
-  font-family: var(--font-family-sans);
-  font-size: var(--font-base-size);
-  line-height: var(--font-base-line-height);
+  font-size: calc(16px + 6 * ((100vw - 320px) / 1600));
   min-height: 100%;
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background: var(--color-white);
-  color: var(--color-black);
+  background: white;
+  color: black;
   margin: 0;
+  padding: 0;
   min-height: 100%;
+  overflow-x: hidden;
+
+  letter-spacing: .02em;
 }
 
 html,
@@ -23,9 +26,33 @@ body > div > div {
 }
 
 body.bransjenytt {
-  background: linear-gradient(rgb(124, 255, 168), rgb(132, 251, 255), rgb(255, 195, 139), rgb(255, 159, 199), rgb(255, 255, 125), rgb(187, 128, 255));
+  background: linear-gradient(rgb(124, 255, 168), rgb(132, 251, 255));
+}
+
+a {
+  transition: all .1s ease-in-out;
+  @nest &:hover {
+    opacity: .5;
+  }
 }
 
 p {
   max-width: 32rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-weight: normal;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1rem;
 }

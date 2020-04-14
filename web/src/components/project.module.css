@@ -1,10 +1,7 @@
 @import '../styles/custom-media.css';
-@import '../styles/custom-properties.css';
 
-.root {}
-
-.title {
-  composes: pageTitle from './typography.module.css';
+.root {
+  padding: 1rem 0;
 }
 
 .mainImage {
@@ -26,36 +23,20 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-column-gap: 2em;
+  grid-column-gap: 1.8rem;
 
   @media (--media-min-medium) {
     grid-template-columns: 3fr 1fr;
   }
 }
 
-.mainContent {
-  @nest & a {
-    color: var(--color-accent);
-
-    @media (hover: hover) {
-      @nest &:hover {
-        color: inherit;
-      }
-    }
-  }
-}
-
-.metaContent {
-}
-
-.publishedAt {
-  composes: small from './typography.module.css';
-  margin: 1.5rem 0 3rem;
-  color: var(--color-gray);
+.title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .categories {
-  border-top: 1px solid var(--color-very-light-gray);
   margin: 2rem 0 3rem;
 
   @nest & ul {
@@ -65,17 +46,11 @@
   }
 
   @nest & ul li {
-    padding: 0.25rem 0;
+    font-style: italic;
   }
 }
 
-.categoriesHeadline {
-  composes: base from './typography.module.css';
-  margin: 0.5rem 0 0;
-}
-
 .relatedProjects {
-  border-top: 1px solid var(--color-very-light-gray);
   margin: 2rem 0 3rem;
 
   @nest & ul {
@@ -93,6 +68,5 @@
 }
 
 .relatedProjectsHeadline {
-  composes: base from './typography.module.css';
   margin: 0.5rem 0 0;
 }

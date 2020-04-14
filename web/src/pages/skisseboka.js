@@ -7,8 +7,6 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
 
-import {responsiveTitle1} from '../components/typography.module.css'
-
 export const query = graphql`
   query SketchPageQuery {
     sketch: allSanitySketch(
@@ -50,7 +48,7 @@ const SketchbookPage = props => {
     <Layout>
       <SEO title='Skisseboka' />
       <Container>
-        <h1 className={responsiveTitle1}>Skisseboka</h1>
+        <h1>Skisseboka</h1>
         {sketchNodes && sketchNodes.length > 0 && <Sketchbook nodes={sketchNodes} />}
       </Container>
     </Layout>
