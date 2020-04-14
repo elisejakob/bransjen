@@ -48,7 +48,6 @@ const SketchbookPage = props => {
     <Layout>
       <SEO title='Skisseboka' />
       <Container>
-        <h1>Skisseboka</h1>
         {sketchNodes && sketchNodes.length > 0 && <Sketchbook nodes={sketchNodes} />}
       </Container>
     </Layout>

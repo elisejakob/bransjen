@@ -75,6 +75,11 @@
     @nest &:hover {
       opacity: .5;
     }
+
+    @nest &.active {
+      font-size: 2rem;
+      box-shadow: none;
+    }
   }
 
   @media (--media-max-small) {

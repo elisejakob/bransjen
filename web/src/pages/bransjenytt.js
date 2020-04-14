@@ -55,7 +55,6 @@ const NewsPage = props => {
     <Layout>
       <SEO title='Bransjenytt' />
       <Container>
-        <h1>Bransjenytt</h1>
         {newsNodes && newsNodes.length > 0 && <Newsfeed nodes={newsNodes} />}
       </Container>
     </Layout>

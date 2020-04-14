@@ -49,7 +49,6 @@ const ProjectPage = props => {
     <Layout>
       <SEO title='Prosjekter' />
       <Container>
-        <h1>Prosjekter</h1>
         {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
       </Container>
     </Layout>
