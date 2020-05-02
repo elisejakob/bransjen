@@ -10,7 +10,7 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
     <div className={styles.wrapper}>
       <div className={styles.logo}>
         <Link to='/'>
-          <img src="static/assets/bransjen.gif" alt={siteTitle} />
+          <img src="/assets/bransjen.gif" alt={siteTitle} />
         </Link>
       </div>
       <div className={styles.about}>
