@@ -20,9 +20,6 @@
 }
 
 .projectDetails {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   margin-top: .5rem;
 }
 
@@ -34,5 +31,5 @@
 .category {
   display: block;
   font-size: 1rem;
-  font-style: italic;
+  font-family: "bookman-jf-pro", serif;
 }

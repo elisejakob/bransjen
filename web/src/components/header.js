@@ -8,11 +8,14 @@ import styles from './header.module.css'
 const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
+      <div className={styles.logo}>
+        <Link to='/'>
+          <img src="static/assets/bransjen.gif" alt={siteTitle} />
+        </Link>
+      </div>
       <div className={styles.about}>
         <Link to='/om/'>Bransjen</Link> er et lite designstudio som gjør så godt de kan. Noen ganger lager de bæsjeanimasjoner og noen ganger vinner de priser.
-      </div>
-      <div className={styles.title}>
-        <Link to='/'>{siteTitle}</Link>
+        <br /><a href="mailto:hei@bransjen.no" target="_blank">hei@bransjen.no</a>
       </div>
     </div>
 
