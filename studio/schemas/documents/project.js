@@ -25,9 +25,13 @@ export default {
     },
     {
       name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
-      hidden: true
+      title: 'Publisert',
+      type: 'datetime'
+    },
+    {
+      name: 'client',
+      title: 'Kunde',
+      type: 'string'
     },
     {
       name: 'excerpt',
@@ -35,15 +39,28 @@ export default {
       type: 'simplePortableText'
     },
     {
+      name: 'categories',
+      title: 'Kategorier',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'category'}}]
+    },
+    {
       name: 'mainImage',
       title: 'Hovedbilde',
       type: 'figure'
     },
     {
-      name: 'categories',
-      title: 'Kategorier',
+      name: 'gallery',
+      title: 'Galleri',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
+      of: [
+        {
+          type: 'figure'
+        },
+        {
+          type: 'figureTwoColumn'
+        }
+      ]
     },
     {
       name: 'relatedProjects',

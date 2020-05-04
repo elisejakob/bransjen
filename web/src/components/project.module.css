@@ -70,3 +70,9 @@
 .relatedProjectsHeadline {
   margin: 0.5rem 0 0;
 }
+
+.gallery {
+  width: 100%;
+  padding: 2rem;
+  background: red;
+}

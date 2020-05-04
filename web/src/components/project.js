@@ -9,7 +9,7 @@ import Container from './container'
 import styles from './project.module.css'
 
 function Project (props) {
-  const {_rawExcerpt, title, categories, mainImage, publishedAt, relatedProjects} = props
+  const {_rawExcerpt, title, categories, mainImage, publishedAt, client, gallery, relatedProjects} = props
   return (
     <article className={styles.root}>
       <Container>
@@ -31,6 +31,9 @@ function Project (props) {
             {_rawExcerpt && <BlockText blocks={_rawExcerpt || []} />}
           </div>
           <aside className={styles.metaContent}>
+            {client &&
+              <div>{client}</div>
+            }
             {categories && categories.length > 0 && (
               <div className={styles.categories}>
                 <ul>
@@ -40,24 +43,27 @@ function Project (props) {
                 </ul>
               </div>
             )}
-            {relatedProjects && relatedProjects.length > 0 && (
-              <div className={styles.relatedProjects}>
-                <h3 className={styles.relatedProjectsHeadline}>Lignende prosjekter</h3>
-                <ul>
-                  {relatedProjects.map(project => (
-                    <li key={`related_${project._id}`}>
-                      {project.slug ? (
-                        <Link to={`/prosjekt/${project.slug.current}`}>{project.title}</Link>
-                      ) : (
-                        <span>{project.title}</span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </aside>
         </div>
+        {gallery &&
+          <div className={styles.gallery}>nanana her er det et galleri egentlig</div>
+        }
+        {relatedProjects && relatedProjects.length > 0 && (
+          <div className={styles.relatedProjects}>
+            <h3 className={styles.relatedProjectsHeadline}>Lignende prosjekter</h3>
+            <ul>
+              {relatedProjects.map(project => (
+                <li key={`related_${project._id}`}>
+                  {project.slug ? (
+                    <Link to={`/prosjekt/${project.slug.current}`}>{project.title}</Link>
+                  ) : (
+                    <span>{project.title}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </Container>
     </article>
   )

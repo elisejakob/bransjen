@@ -25,9 +25,8 @@ export default {
     },
     {
       name: 'publishedAt',
-      title: 'Published at',
-      type: 'datetime',
-      hidden: true
+      title: 'Publisert',
+      type: 'datetime'
     },
     {
       name: 'quote',

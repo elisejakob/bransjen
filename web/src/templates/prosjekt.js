@@ -48,7 +48,78 @@ export const query = graphql`
       slug {
         current
       }
+      client
       _rawExcerpt
+      gallery {
+        ... on SanityFigure {
+          crop {
+            _key
+            _type
+            top
+            bottom
+            left
+            right
+          }
+          hotspot {
+            _key
+            _type
+            x
+            y
+            height
+            width
+          }
+          asset {
+            _id
+          }
+          alt
+        }
+        ... on SanityFigureTwoColumn {
+          image1 {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+            alt
+          }
+          image2 {
+            crop {
+              _key
+              _type
+              top
+              bottom
+              left
+              right
+            }
+            hotspot {
+              _key
+              _type
+              x
+              y
+              height
+              width
+            }
+            asset {
+              _id
+            }
+            alt
+          }
+        }
+      }
     }
   }
 `
