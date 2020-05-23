@@ -45,9 +45,13 @@ function Project (props) {
             )}
           </aside>
         </div>
-        {gallery &&
-          <div className={styles.gallery}>nanana her er det et galleri egentlig</div>
-        }
+        {gallery.length && (
+          <div className={styles.gallery}>
+            {gallery.map(row => (
+              1
+            ))}
+          </div>
+        )}
         {relatedProjects && relatedProjects.length > 0 && (
           <div className={styles.relatedProjects}>
             <h3 className={styles.relatedProjectsHeadline}>Lignende prosjekter</h3>
