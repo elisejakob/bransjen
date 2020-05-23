@@ -28,10 +28,6 @@ body > div > div {
   min-height: 100%;
 }
 
-body.bransjenytt {
-  background: linear-gradient(rgb(124, 255, 168), rgb(132, 251, 255));
-}
-
 a {
   transition: all .1s ease-in-out;
   color: inherit;
