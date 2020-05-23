@@ -95,6 +95,7 @@ const AboutPage = props => {
           </div>
         )}
         {site._rawExcerpt && <BlockText blocks={site._rawExcerpt || []} />}
+        <h2>Sagt om Bransjen:</h2>
         {newsNodes && newsNodes.length > 0 && <Newsfeed nodes={newsNodes} />}
       </Container>
     </Layout>

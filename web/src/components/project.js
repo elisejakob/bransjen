@@ -26,9 +26,9 @@ function Project (props) {
             />
           </div>
         )}
+        <h1 className={styles.title}>{title}</h1>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
-            <h1 className={styles.title}>{title}</h1>
             {_rawExcerpt && <BlockText blocks={_rawExcerpt || []} />}
           </div>
           <aside className={styles.metaContent}>
