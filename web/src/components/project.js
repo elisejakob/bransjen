@@ -10,6 +10,7 @@ import styles from './project.module.css'
 
 function Project (props) {
   const {_rawExcerpt, title, categories, mainImage, publishedAt, client, gallery, relatedProjects} = props
+  console.log(relatedProjects)
   return (
     <article className={styles.root}>
       <Container>
@@ -47,8 +48,40 @@ function Project (props) {
         </div>
         {gallery.length && (
           <div className={styles.gallery}>
-            {gallery.map(row => (
-              1
+            {gallery.map((row, index) => (
+              <div key={`gallery-row-${index}`}>
+                {row.__typename === 'SanityFigure' ? (
+                  <div  className={styles.galleryOneColumn}>
+                    <img
+                      src={imageUrlFor(buildImageObj(row))
+                        .width(1200)
+                        .height(Math.floor((9 / 16) * 1200))
+                        .fit('crop')
+                        .url()}
+                      alt={row.alt}
+                    />
+                  </div>
+                ) : (
+                  <div className={styles.galleryTwoColumn}>
+                    <img
+                      src={imageUrlFor(buildImageObj(row.image1))
+                        .width(1200)
+                        .height(Math.floor((9 / 16) * 1200))
+                        .fit('crop')
+                        .url()}
+                      alt={row.image1.alt}
+                    />
+                    <img
+                      src={imageUrlFor(buildImageObj(row.image2))
+                        .width(1200)
+                        .height(Math.floor((9 / 16) * 1200))
+                        .fit('crop')
+                        .url()}
+                      alt={row.image2.alt}
+                    />
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         )}
@@ -59,7 +92,23 @@ function Project (props) {
               {relatedProjects.map(project => (
                 <li key={`related_${project._id}`}>
                   {project.slug ? (
-                    <Link to={`/prosjekt/${project.slug.current}`}>{project.title}</Link>
+                    <div>
+                      <Link to={`/prosjekt/${project.slug.current}`}>
+                        {project.mainImage && mainImage.asset && (
+                          <div>
+                            <img
+                              src={imageUrlFor(buildImageObj(project.mainImage))
+                                .width(1200)
+                                .height(Math.floor((9 / 16) * 1200))
+                                .fit('crop')
+                                .url()}
+                              alt={project.mainImage.alt}
+                            />
+                          </div>
+                        )}
+                        <h2>{project.title}</h2>
+                      </Link>
+                    </div>
                   ) : (
                     <span>{project.title}</span>
                   )}

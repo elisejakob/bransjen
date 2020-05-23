@@ -21,6 +21,28 @@ export const query = graphql`
         slug {
           current
         }
+        mainImage {
+          crop {
+            _key
+            _type
+            top
+            bottom
+            left
+            right
+          }
+          hotspot {
+            _key
+            _type
+            x
+            y
+            height
+            width
+          }
+          asset {
+            _id
+          }
+          alt
+        }
       }
       mainImage {
         crop {
@@ -51,6 +73,7 @@ export const query = graphql`
       client
       _rawExcerpt
       gallery {
+        __typename
         ... on SanityFigure {
           crop {
             _key

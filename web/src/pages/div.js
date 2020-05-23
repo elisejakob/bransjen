@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {graphql} from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import Newsfeed from '../components/newsfeed'
+import Sketchbook from '../components/sketchbook'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import {mapEdgesToNodes, filterOutDocsWithoutSlugs} from '../lib/helpers'
 
 export const query = graphql`
-  query NewsPageQuery {
-    news: allSanityNews(
+  query SketchPageQuery {
+    sketch: allSanitySketch(
       limit: 12
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
@@ -17,11 +17,15 @@ export const query = graphql`
       edges {
         node {
           id
+          mainImage {
+            asset {
+              _id
+            }
+            alt
+          }
           title
-          quote
-          source {
-            text
-            url
+          slug {
+            current
           }
         }
       }
@@ -29,8 +33,9 @@ export const query = graphql`
   }
 `
 
-const NewsPage = props => {
+const SketchbookPage = props => {
   const {data, errors} = props
+  
   if (errors) {
     return (
       <Layout>
@@ -39,26 +44,16 @@ const NewsPage = props => {
     )
   }
 
-  useEffect(() => {
-    document.body.classList.add('bransjenytt');
-    return () => {
-      document.body.classList.remove('bransjenytt');
-    };
-  });
-
-  const newsNodes =
-    data && data.news && mapEdgesToNodes(data.news)
-
-  console.log(newsNodes);
-
+  const sketchNodes = data && data.sketch && mapEdgesToNodes(data.sketch).filter(filterOutDocsWithoutSlugs)
+  
   return (
     <Layout>
-      <SEO title='Bransjenytt' />
+      <SEO title='Div.' />
       <Container>
-        {newsNodes && newsNodes.length > 0 && <Newsfeed nodes={newsNodes} />}
+        {sketchNodes && sketchNodes.length > 0 && <Sketchbook nodes={sketchNodes} />}
       </Container>
     </Layout>
   )
 }
 
-export default NewsPage
+export default SketchbookPage

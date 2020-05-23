@@ -4,6 +4,7 @@
   min-height: calc(100% - 73px - 120px);
   animation: fadeIn 1s ease-in-out;
   animation-fill-mode: forwards;
+  padding-right: 9rem;
 
   @nest &.about {
     animation-name: fadeDown;
@@ -49,6 +50,7 @@
   box-sizing: border-box;
   padding: 1rem 1.5rem;
   position: fixed;
+  z-index: 100;
   bottom: 0;
   width: 100%;
   background: pink;

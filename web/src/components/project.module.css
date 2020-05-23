@@ -57,6 +57,13 @@
     list-style: none;
     margin: 0.75rem 0;
     padding: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @nest & h2 {
+    font-size: 1rem;
   }
 
   @nest & a {
@@ -73,6 +80,13 @@
 
 .gallery {
   width: 100%;
-  padding: 2rem;
-  background: red;
+}
+
+.galleryOneColumn {
+  width: 100%;
+}
+
+.galleryTwoColumn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

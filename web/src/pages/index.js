@@ -56,6 +56,27 @@ export const query = graphql`
         }
       }
     }
+    sketch: allSanitySketch(
+      limit: 4
+      sort: {fields: [publishedAt], order: DESC}
+      filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+    ) {
+      edges {
+        node {
+          id
+          mainImage {
+            asset {
+              _id
+            }
+            alt
+          }
+          title
+          slug {
+            current
+          }
+        }
+      }
+    }
   }
 `
 
@@ -76,6 +97,8 @@ const IndexPage = props => {
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
+
+  const sketchNodes = data && data.sketch && mapEdgesToNodes(data.sketch).filter(filterOutDocsWithoutSlugs)
 
   if (!site) {
     throw new Error(

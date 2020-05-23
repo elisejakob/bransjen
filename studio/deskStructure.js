@@ -23,9 +23,9 @@ export default () =>
         .schemaType('project')
         .child(S.documentTypeList('project').title('Prosjekter')),
       S.listItem()
-        .title('Skisseboka')
+        .title('Div')
         .schemaType('sketch')
-        .child(S.documentTypeList('sketch').title('Skisseboka')),
+        .child(S.documentTypeList('sketch').title('Div')),
       S.listItem()
         .title('Bransjenytt')
         .schemaType('news')

@@ -21,6 +21,13 @@ body {
   letter-spacing: .02em;
 }
 
+* {
+  cursor: url(/assets/smiley.png), auto;
+}
+*:hover {
+  cursor: url(/assets/smiley.png), auto;
+}
+
 html,
 body,
 body > div,

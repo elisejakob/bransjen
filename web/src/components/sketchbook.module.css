@@ -22,8 +22,6 @@
 }
 
 .sketchthumb {
-  cursor: pointer;
-
   position: relative;
 
   @nest & img {

@@ -7,7 +7,7 @@
 
 .wrapper {
   box-sizing: border-box;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   padding: 2rem;
   display: flex;
   border-bottom: 1px solid black;
@@ -20,6 +20,7 @@
 .logo {
   width: 10rem;
   align-self: center;
+  margin-right: 3rem;
 }
 
 .about {
@@ -29,83 +30,37 @@
   font-family: 'bookman-jf-pro', serif;
 }
 
-.toggleNavButton {
-  appearance: none;
-  font-size: 25px;
-  border: none;
-  background: none;
-  margin: 0;
-  padding: calc(14 / 17 / 2 * 1rem);
-  outline: none;
-  color: inherit;
-
-  & svg {
-    display: block;
-    fill: inherit;
-  }
-
-  @media (--media-min-small) {
-    display: none;
-  }
-}
-
 .nav {
-  display: none;
+  display: block;
+  position: relative;
 
   @nest & ul {
+    width: 100%;
     margin: 0;
     padding: 0;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transition: all .5s linear;
+    transform-origin: 0 0;
+    transform: rotate(-90deg) translate(-100%, -100%);
   }
 
   @nest & ul li {
-    //transform: rotate(-90deg);
-    margin-right: 2rem;
-  }
-
-  @nest & ul li a {
     display: block;
     color: inherit;
     text-decoration: none;
-    padding: 0;
+    padding: .8rem;
     font-size: 1.4rem;
     line-height: 1;
-    box-shadow: 0 1px 0 0 black;
-
-    @nest &:hover {
-      opacity: .5;
-    }
+    background: white;
+    border-top: 1px solid black;
 
     @nest &.active {
-      font-size: 2rem;
-      box-shadow: none;
+      position: static;
+      transform: none;
+      border: none;
     }
   }
-
-  @media (--media-max-small) {
-    position: absolute;
-    background: white;
-    color: black;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    left: 0;
-    right: 0;
-    top: 4.3rem;
-
-    @nest & ul {
-      padding: 1rem 0;
-    }
-  }
-
-  @media (--media-min-small) {
-    display: block;
-
-    @nest & ul {
-      list-style: none;
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
-}
-
-.showNav {
-  display: block;
 }

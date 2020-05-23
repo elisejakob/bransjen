@@ -1,7 +1,5 @@
 import {Link} from 'gatsby'
 import React from 'react'
-import Icon from './icon'
-import {cn} from '../lib/helpers'
 
 import styles from './header.module.css'
 
@@ -19,20 +17,16 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
       </div>
     </div>
 
-    <button className={styles.toggleNavButton} onClick={showNav ? onHideNav : onShowNav}>
-      <Icon symbol='hamburger' />
-    </button>
-
-    <nav className={cn(styles.nav, showNav && styles.showNav)}>
+    <nav className={styles.nav}>
       <ul>
         <li>
           <Link to='/prosjekter/' activeClassName={styles.active}>Prosjekter</Link>
         </li>
         <li>
-          <Link to='/skisseboka/' activeClassName={styles.active}>Skisseboka</Link>
+          <Link to='/div/' activeClassName={styles.active}>Div.</Link>
         </li>
         <li>
-          <Link to='/bransjenytt/' activeClassName={styles.active}>Bransjenytt</Link>
+          <Link to='/om/' activeClassName={styles.active}>Om Bransjen</Link>
         </li>
       </ul>
     </nav>
