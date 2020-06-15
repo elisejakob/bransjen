@@ -2,7 +2,7 @@
 
 .content {
   min-height: calc(100% - 73px - 120px);
-  animation: fadeIn 1s ease-in-out;
+  /*animation: fadeIn 1s ease-in-out;*/
   animation-fill-mode: forwards;
   padding-right: 9rem;
 

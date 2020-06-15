@@ -1,9 +1,10 @@
 import {Link} from 'gatsby'
 import React from 'react'
-
+import { cn } from '../lib/helpers'
+import TransitionLink from 'gatsby-plugin-transition-link'
 import styles from './header.module.css'
 
-const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
+const Header = ({onHideNav, onShowNav, showNav, siteTitle, transitionStatus}) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
       <div className={styles.logo}>
@@ -17,16 +18,16 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle}) => (
       </div>
     </div>
 
-    <nav className={styles.nav}>
+    <nav className={cn(styles.nav, transitionStatus)}>
       <ul>
         <li>
-          <Link to='/prosjekter/' activeClassName={styles.active}>Prosjekter</Link>
+          <TransitionLink to='/prosjekter/' activeClassName={styles.active}>Prosjekter</TransitionLink>
         </li>
         <li>
-          <Link to='/div/' activeClassName={styles.active}>Div.</Link>
+          <TransitionLink to='/div/' activeClassName={styles.active}>Div.</TransitionLink>
         </li>
         <li>
-          <Link to='/om/' activeClassName={styles.active}>Om Bransjen</Link>
+          <TransitionLink to='/om/' activeClassName={styles.active}>Om Bransjen</TransitionLink>
         </li>
       </ul>
     </nav>

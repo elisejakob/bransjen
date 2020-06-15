@@ -17,8 +17,6 @@ body {
   padding: 0;
   min-height: 100%;
   overflow-x: hidden;
-
-  letter-spacing: .02em;
 }
 
 * {

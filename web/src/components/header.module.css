@@ -57,10 +57,22 @@
     background: white;
     border-top: 1px solid black;
 
+    animation: slideIn .4s linear;
+    animation-fill-mode: forwards;
+
     @nest &.active {
       position: static;
       transform: none;
       border: none;
     }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(300%);
+  }
+  to {
+    transform: translateY(0);
   }
 }
