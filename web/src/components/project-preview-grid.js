@@ -15,6 +15,14 @@ function ProjectPreviewGrid (props) {
             </li>
           ))}
       </ul>
+      <ul className={styles.grid}>
+        {props.nodes &&
+          props.nodes.map(node => (
+            <li key={node.id}>
+              <ProjectPreview {...node} />
+            </li>
+          ))}
+      </ul>
     </div>
   )
 }

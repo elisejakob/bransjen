@@ -3,8 +3,17 @@ import React from 'react'
 import { cn } from '../lib/helpers'
 import TransitionLink from 'gatsby-plugin-transition-link'
 import styles from './header.module.css'
+import { gsap, TweenLite } from 'gsap'
 
-const Header = ({onHideNav, onShowNav, showNav, siteTitle, transitionStatus}) => (
+const enterPage = ({node}) => {
+  TweenLite.fromTo(node, 1, {xPercent: 100}, {xPercent: 0});
+}
+
+const exitPage = ({node}) => {
+  TweenLite.fromTo(node, 1, {xPercent: 0}, {xPercent: 100});
+}
+
+const Header = ({siteTitle}) => (
   <div className={styles.root}>
     <div className={styles.wrapper}>
       <div className={styles.logo}>
@@ -18,16 +27,61 @@ const Header = ({onHideNav, onShowNav, showNav, siteTitle, transitionStatus}) =>
       </div>
     </div>
 
-    <nav className={cn(styles.nav, transitionStatus)}>
+    <nav className={styles.nav}>
       <ul>
         <li>
-          <TransitionLink to='/prosjekter/' activeClassName={styles.active}>Prosjekter</TransitionLink>
+          <TransitionLink
+            to='/prosjekter/'
+            activeClassName={styles.active}
+            exit={{
+              length: 1,
+              trigger: ({ exit, node }) =>
+                exitPage({ exit, node, direction: "out" }),
+            }}
+            entry={{
+              length: 1,
+              trigger: ({ exit, node }) =>
+                enterPage({ exit, node, direction: "in" }),
+            }}
+          >
+            Prosjekter
+          </TransitionLink>
         </li>
         <li>
-          <TransitionLink to='/div/' activeClassName={styles.active}>Div.</TransitionLink>
+          <TransitionLink
+            to='/div/'
+            activeClassName={styles.active}
+            exit={{
+              length: 1,
+              trigger: ({ exit, node }) =>
+                exitPage({ exit, node, direction: "out" }),
+            }}
+            entry={{
+              length: 1,
+              trigger: ({ exit, node }) =>
+                enterPage({ exit, node, direction: "in" }),
+            }}
+          >
+            Div.
+          </TransitionLink>
         </li>
         <li>
-          <TransitionLink to='/om/' activeClassName={styles.active}>Om Bransjen</TransitionLink>
+          <TransitionLink
+            to='/om/'
+            activeClassName={styles.active}
+            exit={{
+              length: 1,
+              trigger: ({ exit, node }) =>
+                exitPage({ exit, node, direction: "out" }),
+            }}
+            entry={{
+              length: 1,
+              trigger: ({ exit, node }) =>
+                enterPage({ exit, node, direction: "in" }),
+            }}
+          >
+            Om Bransjen
+          </TransitionLink>
         </li>
       </ul>
     </nav>

@@ -81,6 +81,7 @@ const AboutPage = props => {
   return (
     <Layout>
       <SEO title={site.title} />
+      {site._rawExcerpt && <BlockText blocks={site._rawExcerpt || []} />}
       <Container>
         {site.mainImage && site.mainImage.asset && (
           <div>
@@ -94,7 +95,6 @@ const AboutPage = props => {
             />
           </div>
         )}
-        {site._rawExcerpt && <BlockText blocks={site._rawExcerpt || []} />}
         <h2>Sagt om Bransjen:</h2>
         {newsNodes && newsNodes.length > 0 && <Newsfeed nodes={newsNodes} />}
       </Container>

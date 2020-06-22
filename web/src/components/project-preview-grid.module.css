@@ -1,9 +1,5 @@
 @import '../styles/custom-media.css';
 
-.root {
-  margin: 2em 0 4em;
-}
-
 .grid {
   margin: 0;
   padding: 0;

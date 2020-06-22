@@ -67,3 +67,8 @@ h3 {
 img {
   max-width: 100%;
 }
+
+.gatsby-plugin-transition-link-portal {
+  width: 100%;
+  right: 0;
+}

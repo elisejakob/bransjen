@@ -11,6 +11,7 @@
   padding: 2rem;
   display: flex;
   border-bottom: 1px solid black;
+  background: #fff;
 
   @media (--media-min-small) {
     padding: 1.5em 1.5em;
