@@ -68,7 +68,16 @@
     padding: 0;
 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 1.8rem;
+
+    @media (--media-min-medium) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (--media-min-large) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
   }
 
   @nest & h2 {
