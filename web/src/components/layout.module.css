@@ -2,46 +2,10 @@
 
 .content {
   min-height: calc(100% - 73px - 120px);
-  animation-fill-mode: forwards;
   padding: 9rem 9rem 0 0;
-
-  @nest &.about {
-    animation-name: fadeDown;
-  }
-
-  @nest &.project {
-    animation-name: fadeUp;
-  }
 
   @media (--media-min-small) {
     min-height: calc(100% - 88px - 150px);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeDown {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
   }
 }
 

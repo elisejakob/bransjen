@@ -16,8 +16,7 @@
 .quote {
   margin: 0 auto 1rem;
   font-size: 2rem;
-  font-weight: bold;
-  font-family: serif;
+  font-family: "bookman-jf-pro", serif;
   line-height: 1.2;
 }
 

@@ -81,8 +81,8 @@ const AboutPage = props => {
   return (
     <Layout>
       <SEO title={site.title} />
-      {site._rawExcerpt && <BlockText blocks={site._rawExcerpt || []} />}
       <Container>
+        {site._rawExcerpt && <BlockText blocks={site._rawExcerpt || []} />}
         {site.mainImage && site.mainImage.asset && (
           <div>
             <img

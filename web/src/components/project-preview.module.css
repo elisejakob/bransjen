@@ -28,8 +28,23 @@
   margin: 0;
 }
 
-.category {
+.categories {
   display: block;
-  font-size: 1rem;
+  font-size: 16px;
   font-family: "bookman-jf-pro", serif;
+  opacity: .5;
+  line-height: 1.2;
+  margin: .3rem 0 0;
+}
+
+.category {
+  display: inline-block;
+}
+
+.category:after {
+  content: ", ";
+  margin-right: .3rem;
+}
+.category:last-child:after {
+  content: " ";
 }

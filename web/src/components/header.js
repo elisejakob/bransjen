@@ -28,62 +28,54 @@ const Header = ({siteTitle}) => (
     </div>
 
     <nav className={styles.nav}>
-      <ul>
-        <li>
-          <TransitionLink
-            to='/prosjekter/'
-            activeClassName={styles.active}
-            exit={{
-              length: 1,
-              trigger: ({ exit, node }) =>
-                exitPage({ exit, node, direction: "out" }),
-            }}
-            entry={{
-              length: 1,
-              trigger: ({ exit, node }) =>
-                enterPage({ exit, node, direction: "in" }),
-            }}
-          >
-            Prosjekter
-          </TransitionLink>
-        </li>
-        <li>
-          <TransitionLink
-            to='/div/'
-            activeClassName={styles.active}
-            exit={{
-              length: 1,
-              trigger: ({ exit, node }) =>
-                exitPage({ exit, node, direction: "out" }),
-            }}
-            entry={{
-              length: 1,
-              trigger: ({ exit, node }) =>
-                enterPage({ exit, node, direction: "in" }),
-            }}
-          >
-            Div.
-          </TransitionLink>
-        </li>
-        <li>
-          <TransitionLink
-            to='/om/'
-            activeClassName={styles.active}
-            exit={{
-              length: 1,
-              trigger: ({ exit, node }) =>
-                exitPage({ exit, node, direction: "out" }),
-            }}
-            entry={{
-              length: 1,
-              trigger: ({ exit, node }) =>
-                enterPage({ exit, node, direction: "in" }),
-            }}
-          >
-            Om Bransjen
-          </TransitionLink>
-        </li>
-      </ul>
+      <TransitionLink
+        to='/prosjekter/'
+        activeClassName={styles.active}
+        exit={{
+          length: 1,
+          trigger: ({ exit, node }) =>
+            exitPage({ exit, node, direction: "out" }),
+        }}
+        entry={{
+          length: 1,
+          trigger: ({ exit, node }) =>
+            enterPage({ exit, node, direction: "in" }),
+        }}
+      >
+        Prosjekter
+      </TransitionLink>
+      <TransitionLink
+        to='/div/'
+        activeClassName={styles.active}
+        exit={{
+          length: 1,
+          trigger: ({ exit, node }) =>
+            exitPage({ exit, node, direction: "out" }),
+        }}
+        entry={{
+          length: 1,
+          trigger: ({ exit, node }) =>
+            enterPage({ exit, node, direction: "in" }),
+        }}
+      >
+        Div.
+      </TransitionLink>
+      <TransitionLink
+        to='/om/'
+        activeClassName={styles.active}
+        exit={{
+          length: 1,
+          trigger: ({ exit, node }) =>
+            exitPage({ exit, node, direction: "out" }),
+        }}
+        entry={{
+          length: 1,
+          trigger: ({ exit, node }) =>
+            enterPage({ exit, node, direction: "in" }),
+        }}
+      >
+        Om Bransjen
+      </TransitionLink>
     </nav>
   </div>
 )

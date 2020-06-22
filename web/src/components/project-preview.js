@@ -21,7 +21,13 @@ function ProjectPreview (props) {
       </div>
       <div className={styles.projectDetails}>
         <h3 className={styles.title}>{props.title}</h3>
-        <span className={styles.category}>Kategori</span>
+        {props.categories && props.categories.length > 0 && (
+          <div className={styles.categories}>
+              {props.categories.map(category => (
+                <span key={category._id} className={styles.category}>{category.title}</span>
+              ))}
+          </div>
+        )}
       </div>
     </Link>
   )
