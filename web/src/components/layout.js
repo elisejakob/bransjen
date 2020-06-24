@@ -8,16 +8,8 @@ import styles from './layout.module.css'
 
 const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
   <>
-    <TransitionPortal>
       <Header siteTitle={siteTitle} />
-      <footer className={styles.footer}>
-        <div className={styles.siteInfo}>
-          <a href="mailto:hei@bransjen.no" target="_blank">hei@bransjen.no</a>
-          <a href="mailto:hei@bransjen.no" target="_blank">Damstredet 8, 0123 Oslo</a>
-          <img className={styles.smiley} src="/assets/smiley.svg" alt="Smiley som ser litt psycho ut" />
-        </div>
-      </footer>
-    </TransitionPortal>
+
     <TransitionState>
       {({ mount, transitionStatus }) => {
         return (
@@ -27,6 +19,13 @@ const Layout = ({ children, onHideNav, onShowNav, showNav, siteTitle }) => (
         )
       }}
     </TransitionState>
+    <footer className={styles.footer}>
+        <div className={styles.siteInfo}>
+          <a href="mailto:hei@bransjen.no" target="_blank">hei@bransjen.no</a>
+          <a href="mailto:hei@bransjen.no" target="_blank">Damstredet 8, 0123 Oslo</a>
+          <img className={styles.smiley} src="/assets/smiley.svg" alt="Smiley som ser litt psycho ut" />
+        </div>
+      </footer>
   </>
 )
 
