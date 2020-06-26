@@ -33,11 +33,11 @@
 
 .nav {
   display: block;
-  position: relative;
+  position: fixed;
   width: 100%;
   text-align: right;
   position: absolute;
-  top: 9rem;
+  top: 0;
   left: 100%;
   transition: all .5s linear;
   transform-origin: 0 0;

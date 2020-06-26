@@ -102,9 +102,12 @@
 
 .galleryOneColumn {
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .galleryTwoColumn {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
 }

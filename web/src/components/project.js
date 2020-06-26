@@ -55,7 +55,6 @@ function Project (props) {
                     <img
                       src={imageUrlFor(buildImageObj(row))
                         .width(1200)
-                        .height(Math.floor((9 / 16) * 1200))
                         .fit('crop')
                         .url()}
                       alt={row.alt}
@@ -65,16 +64,14 @@ function Project (props) {
                   <div className={styles.galleryTwoColumn}>
                     <img
                       src={imageUrlFor(buildImageObj(row.image1))
-                        .width(1200)
-                        .height(Math.floor((9 / 16) * 1200))
+                        .width(800)
                         .fit('crop')
                         .url()}
                       alt={row.image1.alt}
                     />
                     <img
                       src={imageUrlFor(buildImageObj(row.image2))
-                        .width(1200)
-                        .height(Math.floor((9 / 16) * 1200))
+                        .width(800)
                         .fit('crop')
                         .url()}
                       alt={row.image2.alt}
@@ -98,8 +95,8 @@ function Project (props) {
                           <div>
                             <img
                               src={imageUrlFor(buildImageObj(project.mainImage))
-                                .width(1200)
-                                .height(Math.floor((9 / 16) * 1200))
+                                .width(600)
+                                .height(Math.floor((3 / 4) * 600))
                                 .fit('crop')
                                 .url()}
                               alt={project.mainImage.alt}

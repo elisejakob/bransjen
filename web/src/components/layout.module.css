@@ -11,7 +11,7 @@
 
 .footer {
   box-sizing: border-box;
-  padding: 1rem 1.5rem;
+  padding: .75rem 1rem;
   position: fixed;
   z-index: 100;
   bottom: 0;
@@ -19,6 +19,7 @@
   background: pink;
   border-top: 1px solid #000;
   font-family: 'bookman-jf-pro', serif;
+  font-size: 16px;
 }
 
 .footer a {
