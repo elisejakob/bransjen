@@ -11,18 +11,6 @@ import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
-
-
-
-
-import BlockText from '../components/block-text'
-import {buildImageObj} from '../lib/helpers'
-import {imageUrlFor} from '../lib/image-url'
-
-
-
-
-
 export const query = graphql`
   query IndexPageQuery {
     site: sanitySiteSettings(_id: {regex: "/(drafts.|)siteSettings/"}) {
@@ -153,32 +141,20 @@ const IndexPage = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        <h1>Prosjekter</h1>
+        <div className="about">
+          Bransjen er et lite designstudio som gjør så godt de kan. Noen ganger lager de bæsjeanimasjoner og noen ganger vinner de priser.
+          <br /><a href="mailto:hei@bransjen.no" target="_blank">hei@bransjen.no</a>
+        </div>
         {projectNodes && (
           <ProjectPreviewGrid
             nodes={projectNodes}
           />
         )}
-        <h1>Div</h1>
         {sketchNodes && (
           <ProjectPreviewGrid
             nodes={sketchNodes}
           />
         )}
-        <h1>Om Bransjen</h1>
-        {about.mainImage && about.mainImage.asset && (
-          <div>
-            <img
-              src={imageUrlFor(buildImageObj(about.mainImage))
-                .width(1200)
-                .height(Math.floor((9 / 16) * 1200))
-                .fit('crop')
-                .url()}
-              alt={about.mainImage.alt}
-            />
-          </div>
-        )}
-        {about._rawExcerpt && <BlockText blocks={about._rawExcerpt || []} />}
       </Container>
     </Layout>
   )

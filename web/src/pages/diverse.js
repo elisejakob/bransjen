@@ -35,7 +35,7 @@ export const query = graphql`
 
 const SketchbookPage = props => {
   const {data, errors} = props
-  
+
   if (errors) {
     return (
       <Layout>
@@ -45,10 +45,10 @@ const SketchbookPage = props => {
   }
 
   const sketchNodes = data && data.sketch && mapEdgesToNodes(data.sketch).filter(filterOutDocsWithoutSlugs)
-  
+
   return (
     <Layout>
-      <SEO title='Div.' />
+      <SEO title='Diverse' />
       <Container>
         {sketchNodes && sketchNodes.length > 0 && <Sketchbook nodes={sketchNodes} />}
       </Container>

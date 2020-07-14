@@ -10,8 +10,6 @@
   margin: 0 auto;
   padding: 2rem;
   display: flex;
-  border-bottom: 1px solid black;
-  background: #fff;
 
   @media (--media-min-small) {
     padding: 1.5em 1.5em;
@@ -24,24 +22,13 @@
   margin-right: 3rem;
 }
 
-.about {
-  margin-right: 0;
-  margin-left: auto;
-  max-width: 26rem;
-  font-family: 'bookman-jf-pro', serif;
-}
-
 .nav {
-  display: block;
-  position: fixed;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
-  text-align: right;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  transition: all .5s linear;
-  transform-origin: 0 0;
-  transform: rotate(-90deg) translate(-100%, -100%);
+  max-width: 800px;
+  margin: 0 auto 0 0;
+  padding: 0 1.5em;
 
   @nest & a {
     display: block;
@@ -50,14 +37,23 @@
     padding: .8rem;
     font-size: 1.4rem;
     line-height: 1;
-    background: white;
-    border-top: 1px solid black;
 
-    @nest &.active {
-      display: none;
-    }
     @nest &:hover {
       opacity: 1;
     }
+
+    @nest &.active {
+      color: blue;
+      text-decoration: underline;
+      font-style: italic;
+    }
   }
+}
+
+.smiley {
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+  width: 2em;
+  height: 2em;
 }
