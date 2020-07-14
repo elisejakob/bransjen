@@ -5,6 +5,7 @@ import styles from './newsfeed.module.css'
 function Newsfeed (props) {
   return (
     <div className={styles.root}>
+      <h2>Sagt om Bransjen:</h2>
       <ul className={styles.feed}>
         {props.nodes &&
           props.nodes.map(node => (

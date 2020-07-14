@@ -10,7 +10,6 @@ import styles from './project.module.css'
 
 function Project (props) {
   const {_rawExcerpt, title, categories, mainImage, publishedAt, client, gallery, relatedProjects} = props
-  console.log(relatedProjects)
   return (
     <article className={styles.root}>
       <Container>
@@ -19,34 +18,34 @@ function Project (props) {
             <img
               src={imageUrlFor(buildImageObj(mainImage))
                 .width(1200)
-                .height(Math.floor((9 / 16) * 1200))
+                .height(Math.floor((3 / 4) * 1200))
                 .fit('crop')
                 .url()}
               alt={mainImage.alt}
             />
           </div>
         )}
-        <h1 className={styles.title}>{title}</h1>
         <div className={styles.grid}>
+          <div>
+            <h1 className={styles.title}>{title}</h1>
+            <div className={styles.metaContent}>
+              {categories && categories.length > 0 && (
+                <div className={styles.categories}>
+                    {categories.map(category => (
+                      <span key={category._id}>{category.title}</span>
+                    ))}
+                </div>
+              )}
+              {client &&
+                <span>{client}</span>
+              }
+            </div>
+          </div>
           <div className={styles.mainContent}>
             {_rawExcerpt && <BlockText blocks={_rawExcerpt || []} />}
           </div>
-          <aside className={styles.metaContent}>
-            {client &&
-              <div>{client}</div>
-            }
-            {categories && categories.length > 0 && (
-              <div className={styles.categories}>
-                <ul>
-                  {categories.map(category => (
-                    <li key={category._id}>{category.title}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </aside>
         </div>
-        {gallery.length && (
+        {gallery && gallery.length > 0 && (
           <div className={styles.gallery}>
             {gallery.map((row, index) => (
               <div key={`gallery-row-${index}`}>

@@ -10,6 +10,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import BlockText from './block-text'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -82,30 +83,7 @@ export const query = graphql`
       }
     }
     about: sanityAbout(_id: {regex: "/(drafts.|)about/"}) {
-      title
       _rawExcerpt
-      mainImage {
-        crop {
-          _key
-          _type
-          top
-          bottom
-          left
-          right
-        }
-        hotspot {
-          _key
-          _type
-          x
-          y
-          height
-          width
-        }
-        asset {
-          _id
-        }
-        alt
-      }
     }
   }
 `
@@ -142,8 +120,7 @@ const IndexPage = props => {
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
         <div className="about">
-          Bransjen er et lite designstudio som gjør så godt de kan. Noen ganger lager de bæsjeanimasjoner og noen ganger vinner de priser.
-          <br /><a href="mailto:hei@bransjen.no" target="_blank">hei@bransjen.no</a>
+        {about._rawExcerpt && <BlockText blocks={about._rawExcerpt || []} />}<br /><a href="mailto:hei@bransjen.no" target="_blank">hei@bransjen.no</a>
         </div>
         {projectNodes && (
           <ProjectPreviewGrid

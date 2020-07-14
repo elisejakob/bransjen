@@ -2,12 +2,14 @@
 
 .root {
   padding: 0 0 10rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .mainImage {
   position: relative;
   background: #eee;
-  padding-bottom: calc(9 / 16 * 100%);
+  padding-bottom: calc(3 / 4 * 100%);
 
   @nest & img {
     position: absolute;
@@ -24,19 +26,21 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-column-gap: 1.8rem;
+  margin-bottom: 3rem;
 
   @media (--media-min-medium) {
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 .title {
   text-align: left;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 
 .mainContent {
+  margin-top: 2rem;
   font-family: 'bookman-jf-pro', serif;
 }
 
@@ -46,15 +50,10 @@
 }
 
 .categories {
-  margin: 2rem 0 3rem;
+  margin: 1.5rem 0 0;
 
-  @nest & ul {
-    list-style: none;
-    margin: 0.75rem 0;
-    padding: 0;
-  }
-
-  @nest & ul li {
+  @nest & span {
+    display: block;
     font-style: italic;
   }
 }
@@ -102,12 +101,12 @@
 
 .galleryOneColumn {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 .galleryTwoColumn {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }

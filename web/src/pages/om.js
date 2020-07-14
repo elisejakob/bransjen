@@ -4,7 +4,7 @@ import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import BlockText from '../components/block-text'
+import About from '../components/about'
 import Newsfeed from '../components/newsfeed'
 import {mapEdgesToNodes} from '../lib/helpers'
 import {buildImageObj} from '../lib/helpers'
@@ -82,20 +82,7 @@ const AboutPage = props => {
     <Layout>
       <SEO title={site.title} />
       <Container>
-        {site._rawExcerpt && <BlockText blocks={site._rawExcerpt || []} />}
-        {site.mainImage && site.mainImage.asset && (
-          <div>
-            <img
-              src={imageUrlFor(buildImageObj(site.mainImage))
-                .width(1200)
-                .height(Math.floor((9 / 16) * 1200))
-                .fit('crop')
-                .url()}
-              alt={site.mainImage.alt}
-            />
-          </div>
-        )}
-        <h2>Sagt om Bransjen:</h2>
+        {site && <About {...site} />}
         {newsNodes && newsNodes.length > 0 && <Newsfeed nodes={newsNodes} />}
       </Container>
     </Layout>
