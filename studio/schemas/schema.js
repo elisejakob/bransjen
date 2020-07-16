@@ -15,6 +15,7 @@ import about from './documents/about'
 // Object types
 import source from './objects/source'
 import figure from './objects/figure'
+import video from './objects/video'
 import figureTwoColumn from './objects/figureTwoColumn'
 import simplePortableText from './objects/simplePortableText'
 
@@ -27,6 +28,7 @@ export default createSchema({
     // When added to this list, object types can be used as { type: 'typename' } in other document schemas
     source,
     figure,
+    video,
     figureTwoColumn,
     simplePortableText,
     // The following are document types which will appear in the studio.

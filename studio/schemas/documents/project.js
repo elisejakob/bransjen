@@ -59,6 +59,9 @@ export default {
         },
         {
           type: 'figureTwoColumn'
+        },
+        {
+          type: 'video'
         }
       ]
     },

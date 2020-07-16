@@ -110,3 +110,11 @@
   grid-gap: 1rem;
   margin-bottom: 3rem;
 }
+
+.galleryVideo {
+  margin: 0 auto 3rem;
+}
+
+video {
+  width: 100%;
+}

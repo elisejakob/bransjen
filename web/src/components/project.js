@@ -49,8 +49,8 @@ function Project (props) {
           <div className={styles.gallery}>
             {gallery.map((row, index) => (
               <div key={`gallery-row-${index}`}>
-                {row.__typename === 'SanityFigure' ? (
-                  <div  className={styles.galleryOneColumn}>
+                {row.__typename === 'SanityFigure' && (
+                  <div className={styles.galleryOneColumn}>
                     <img
                       src={imageUrlFor(buildImageObj(row))
                         .width(1200)
@@ -59,7 +59,8 @@ function Project (props) {
                       alt={row.alt}
                     />
                   </div>
-                ) : (
+                 )}
+                 {row.__typename === 'SanityFigureTwoColumn' && (
                   <div className={styles.galleryTwoColumn}>
                     <img
                       src={imageUrlFor(buildImageObj(row.image1))
@@ -75,6 +76,13 @@ function Project (props) {
                         .url()}
                       alt={row.image2.alt}
                     />
+                  </div>
+                )}
+                {row.__typename === 'SanityVideo' && (
+                  <div className={styles.galleryVideo}>
+                    <video controls>
+                      <source src={row.asset.url} type="video/mp4" />
+                    </video>
                   </div>
                 )}
               </div>

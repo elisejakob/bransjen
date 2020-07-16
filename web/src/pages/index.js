@@ -10,7 +10,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import BlockText from './block-text'
+import BlockText from '../components/block-text'
 
 export const query = graphql`
   query IndexPageQuery {

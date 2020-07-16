@@ -142,6 +142,11 @@ export const query = graphql`
             alt
           }
         }
+        ... on SanityVideo {
+          asset {
+            url
+          }
+        }
       }
     }
   }
