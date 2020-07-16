@@ -45,6 +45,11 @@ export default {
       of: [{type: 'reference', to: {type: 'category'}}]
     },
     {
+      name: 'indexImage',
+      title: 'Forsidebilde',
+      type: 'figure'
+    },
+    {
       name: 'mainImage',
       title: 'Hovedbilde',
       type: 'figure'
