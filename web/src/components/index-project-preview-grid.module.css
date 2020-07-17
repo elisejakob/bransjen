@@ -1,0 +1,56 @@
+@import '../styles/custom-media.css';
+
+.root {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.8rem;
+  padding-bottom: 10rem;
+  overflow: hidden;
+
+  @media (--media-min-medium) {
+    grid-template-columns: 30% 1fr;
+  }
+}
+.projectGrid {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 3rem;
+
+  @media (--media-min-medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.projectGrid li:nth-of-type(even) {
+  transform: translateY(3rem);
+}
+
+.sketchGrid {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.8rem;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @media (--media-min-medium) {
+    grid-template-columns: 1fr 1fr;
+    top: 10rem;
+    left: 20%;
+  }
+}
+
+.about {
+  max-width: 18rem;
+  font-family: 'bookman-jf-pro', serif;
+}

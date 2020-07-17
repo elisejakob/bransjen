@@ -7,10 +7,9 @@ import {
 } from '../lib/helpers'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
+import IndexProjectPreviewGrid from '../components/index-project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import BlockText from '../components/block-text'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -20,14 +19,13 @@ export const query = graphql`
       keywords
     }
     projects: allSanityProject(
-      limit: 3
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
     ) {
       edges {
         node {
           id
-          mainImage {
+          indexImage {
             crop {
               _key
               _type
@@ -62,7 +60,6 @@ export const query = graphql`
       }
     }
     sketch: allSanitySketch(
-      limit: 3
       sort: {fields: [publishedAt], order: DESC}
       filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
     ) {
@@ -119,17 +116,11 @@ const IndexPage = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        <div className="about">
-        {about._rawExcerpt && <BlockText blocks={about._rawExcerpt || []} />}<br /><a href="mailto:hei@bransjen.no" target="_blank">hei@bransjen.no</a>
-        </div>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            nodes={projectNodes}
-          />
-        )}
-        {sketchNodes && (
-          <ProjectPreviewGrid
-            nodes={sketchNodes}
+        {projectNodes && sketchNodes && (
+          <IndexProjectPreviewGrid
+            projectNodes={projectNodes}
+            sketchNodes={sketchNodes}
+            aboutText={about._rawExcerpt}
           />
         )}
       </Container>
