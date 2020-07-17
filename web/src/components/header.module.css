@@ -28,13 +28,12 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto 0 0;
-  padding: 0 1.5em;
+  padding: 0 2rem 2rem;
 
   @nest & a {
     display: block;
     color: inherit;
     text-decoration: none;
-    padding: .8rem;
     font-size: 1.4rem;
     line-height: 1;
 
