@@ -29,3 +29,35 @@
     width: 100%;
   }
 }
+
+.modalNavLeft,
+.modalNavRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.modalNavLeft {
+  content: "pil til venstre";
+  left: 1.5rem;
+}
+
+.modalNavRight {
+  content: "pil til høyre";
+  right: 1.5rem;
+}
+
+.closeModal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 5rem;
+  height: 5rem;
+  padding: 1.5rem;
+}
+
+.closeModal__icon {
+  width: 2rem;
+  height: 2rem;
+  background: black;
+}
