@@ -35,6 +35,16 @@ export const query = graphql`
         }
       }
     }
+    categories: allSanityCategory(
+      limit: 12
+    ) {
+      edges {
+        node {
+          id
+          title
+        }
+      }
+    }
   }
 `
 
@@ -49,11 +59,13 @@ const ProjectPage = props => {
   }
   const projectNodes =
     data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+  const categoryNodes =
+    data && data.categories && mapEdgesToNodes(data.categories)
   return (
     <Layout>
       <SEO title='Prosjekter' />
       <Container>
-        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
+        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} categories={categoryNodes} />}
       </Container>
     </Layout>
   )
