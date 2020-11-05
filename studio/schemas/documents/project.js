@@ -29,6 +29,11 @@ export default {
       type: 'datetime'
     },
     {
+      title: 'Vis på forsiden',
+      name: 'featured',
+      type: 'boolean'
+    },
+    {
       name: 'client',
       title: 'Kunde',
       type: 'string'

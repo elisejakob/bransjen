@@ -21,10 +21,13 @@ body {
 
 * {
   box-sizing: border-box;
-  cursor: url(/assets/smiley.png), auto;
+  cursor: url(/assets/smiley-cursor.svg), auto;
 }
 *:hover {
-  cursor: url(/assets/smiley.png), auto;
+  cursor: url(/assets/smiley-cursor.svg), auto;
+}
+a:hover {
+  cursor: url(/assets/smiley-cursor-yes.svg), auto;
 }
 
 html,

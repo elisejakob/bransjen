@@ -3,9 +3,9 @@ import React from 'react'
 import {cn, buildImageObj} from '../lib/helpers'
 import {imageUrlFor} from '../lib/image-url'
 
-import styles from './project-preview.module.css'
+import styles from './index-project-preview.module.css'
 
-function ProjectPreview (props) {
+function IndexProjectPreview (props) {
   return (
     <Link className={styles.project} to={`/prosjekt/${props.slug.current}`}>
       <div className={styles.leadMediaThumb}>
@@ -32,4 +32,4 @@ function ProjectPreview (props) {
   )
 }
 
-export default ProjectPreview
+export default IndexProjectPreview

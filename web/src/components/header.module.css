@@ -52,6 +52,22 @@
   position: absolute;
   top: 1.5em;
   right: 1.5em;
-  width: 2em;
-  height: 2em;
+  width: 40px;
+  height: 40px;
+}
+
+.sad, .happy {
+  position: absolute;
+}
+
+.sad {
+  display: none;
+}
+
+.smiley:hover .sad {
+  display: block;
+}
+
+.smiley:hover .happy {
+  display: none;
 }

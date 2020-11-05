@@ -7,42 +7,38 @@ import styles from './index-project-preview-grid.module.css'
 
 function IndexProjectPreviewGrid (props) {
 
-  const shuffledProjects = props.projectNodes.sort(() => 0.5 - Math.random());
+  const shuffledProjects = props.projects.sort(() => 0.5 - Math.random());
   let selectedProjects = shuffledProjects.slice(0, 4);
 
-  const shuffledSketches = props.sketchNodes.sort(() => 0.5 - Math.random());
+  const shuffledSketches = props.sketches.sort(() => 0.5 - Math.random());
   let selectedSketches = shuffledSketches.slice(0, 4);
 
   return (
-    <div className={styles.root}>
+    <div className={styles.projectGrid}>
       <div className={styles.about}>
         {props.aboutText && <BlockText blocks={props.aboutText || []} />}<br />
         <a href="mailto:hei@bransjen.no" target="_blank">hei@bransjen.no</a>
-        </div>
-      <ul className={styles.projectGrid}>
-        {props.projectNodes &&
-          selectedProjects.map(node => (
-            <li key={node.id}>
-              <IndexProjectPreview {...node} key={node.id} />
-            </li>
-          ))}
-      </ul>
-      <ul className={styles.sketchGrid}>
-        {props.sketchNodes &&
-          selectedSketches.map(node => (
-            <li key={node.id}>
-              <IndexSketchPreview {...node} />
-            </li>
-          ))}
-      </ul>
+      </div>
+      {props.projects &&
+        selectedProjects.map((project, index) => (
+          <div key={project.id} style={{order: index + (index + 1)}}>
+            <IndexProjectPreview {...project} key={project.id} />
+          </div>
+        ))}
+      {props.sketches &&
+        selectedSketches.map((sketch, index) => (
+          <div key={sketch.id} style={{order: index + (index + 2)}}>
+            <IndexSketchPreview {...sketch} />
+          </div>
+        ))}
     </div>
   )
 }
 
 IndexProjectPreviewGrid.defaultProps = {
   title: '',
-  projectNodes: [],
-  sketchNodes: [],
+  projects: [],
+  sketches: [],
   about: ''
 }
 

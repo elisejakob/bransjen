@@ -32,19 +32,21 @@
 
 .modalNavLeft,
 .modalNavRight {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .modalNavLeft {
-  content: "pil til venstre";
   left: 1.5rem;
+  width: 40px;
+  height: 40px;
 }
 
 .modalNavRight {
-  content: "pil til høyre";
   right: 1.5rem;
+  width: 40px;
+  height: 40px;
 }
 
 .closeModal {
@@ -57,7 +59,6 @@
 }
 
 .closeModal__icon {
-  width: 2rem;
-  height: 2rem;
-  background: black;
+  width: 40px;
+  height: 40px;
 }

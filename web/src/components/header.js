@@ -34,7 +34,10 @@ const Header = ({siteTitle}) => (
       </Link>
     </nav>
 
-    <img className={styles.smiley} src="/assets/smiley.svg" alt="Smiley som ser litt psycho ut" />
+    <div className={styles.smiley}>
+      <img className={styles.sad} src="/assets/smiley-no.svg" alt="Smiley som ser litt psycho ut" />
+      <img className={styles.happy} src="/assets/smiley.svg" alt="Smiley som ser litt psycho ut" />
+    </div>
   </div>
 )
 

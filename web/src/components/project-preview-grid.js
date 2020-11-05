@@ -9,6 +9,7 @@ function ProjectPreviewGrid (props) {
     <div className={styles.root}>
       <nav className={styles.categories}>
         <ul className={styles.categoryFilter}>
+          <li className={styles.categoryFilterButton} onClick={() => setCategory('all')}>Alle</li>
           {props.categories &&
             props.categories.map(category => (
               <li
@@ -25,11 +26,11 @@ function ProjectPreviewGrid (props) {
       <ul className={styles.grid}>
         {props.nodes &&
           props.nodes.filter(node => {
-            if (!node.categories.length) {
-              return false
-            }
             if (currentCategory === "all") {
               return true
+            }
+            if (!node.categories.length) {
+              return false
             }
             return node.categories.some(category => {
               return currentCategory === category.title

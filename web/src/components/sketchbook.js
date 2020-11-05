@@ -37,11 +37,20 @@ function Sketchbook (props) {
         <>
           <SketchModal currentSketch={props.nodes[currentSketch]} />
           <div className={styles.modalNav}>
-            {currentSketch > 0 && <div className={styles.modalNavLeft} onClick={() => handleModal(currentSketch-1)}>&larr;</div> }
-            {currentSketch < props.nodes.length-1 && <div className={styles.modalNavRight} onClick={() => handleModal(currentSketch+1)}>&rarr;</div> }
+            {currentSketch > 0 &&
+              <div className={styles.modalNavLeft} onClick={() => handleModal(currentSketch-1)}>
+                <img src="/assets/arrow-left.svg" alt="Pil til venstre" />
+              </div>
+            }
+            {
+              currentSketch < props.nodes.length-1 &&
+                <div className={styles.modalNavRight} onClick={() => handleModal(currentSketch+1)}>
+                  <img src="/assets/arrow-right.svg" alt="Pil til høyre" />
+                </div>
+              }
           </div>
           <div className={styles.closeModal} onClick={closeModal}>
-            <div className={styles.closeModal__icon}></div>
+            <img className={styles.closeModal__icon} src="/assets/close.svg" alt="Sirkel med kryss i" />
           </div>
         </>
       }

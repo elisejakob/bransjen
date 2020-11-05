@@ -97,13 +97,13 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const projectNodes = (data || {}).projects
+  const projects = (data || {}).projects
     ? mapEdgesToNodes(data.projects)
       .filter(filterOutDocsWithoutSlugs)
       .filter(filterOutDocsPublishedInTheFuture)
     : []
 
-  const sketchNodes = data && data.sketch && mapEdgesToNodes(data.sketch).filter(filterOutDocsWithoutSlugs)
+  const sketches = data && data.sketch && mapEdgesToNodes(data.sketch).filter(filterOutDocsWithoutSlugs)
   const about = (data || {}).about
 
   if (!site) {
@@ -116,10 +116,10 @@ const IndexPage = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        {projectNodes && sketchNodes && (
+        {projects && sketches && (
           <IndexProjectPreviewGrid
-            projectNodes={projectNodes}
-            sketchNodes={sketchNodes}
+            projects={projects}
+            sketches={sketches}
             aboutText={about._rawExcerpt}
           />
         )}

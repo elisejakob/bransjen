@@ -5,7 +5,7 @@ import {imageUrlFor} from '../lib/image-url'
 
 import styles from './index-sketch-preview.module.css'
 
-function ProjectPreview (props) {
+function IndexSketchPreview (props) {
   return (
     <Link className={styles.sketch} to={`/diverse/`}>
       <div className={styles.sketchThumb}>
@@ -22,4 +22,4 @@ function ProjectPreview (props) {
   )
 }
 
-export default ProjectPreview
+export default IndexSketchPreview
