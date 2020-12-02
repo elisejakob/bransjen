@@ -1,0 +1,34 @@
+:root {
+  --sans-serif: sans-serif;
+  --serif: serif;
+}
+
+html {
+	--base-font-size: calc(14px + 6 * ((100vw - 320px) / 1600));
+}
+
+body {
+ 	--bg-color: #fff;
+ 	--bg-content-color: #fff;
+ 	--body-color: #111;
+ 	--title-color: #111;
+ 	--border-color:  #ddd;
+  --spacing-m: 2rem;
+  --content-width: 860px;
+  --header-height: 80px;
+  --radius: 5px;
+}
+
+@media screen and (max-width: 650px) {
+	body {
+		--space: 1rem;
+		--header-height: 60px;
+	}
+}
+
+/* MEDIA QUERIES — — — — — — — — — — — — */
+
+$media-s: 830px;
+$media-m: 1200px;
+$media-l: 1600px;
+$media-xl: 1900px;
