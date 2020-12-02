@@ -1,16 +1,20 @@
+@import url("https://use.typekit.net/csj5zkc.css");
+@import url('https://fonts.googleapis.com/css?family=Poppins:500,500i,600,600i&display=swap');
+
+
 :root {
-  --sans-serif: sans-serif;
-  --serif: serif;
+  --sans-serif: 'poppins', sans-serif;
+  --serif: 'bookman-jf-pro', serif;
 }
 
 html {
-	--base-font-size: calc(14px + 6 * ((100vw - 320px) / 1600));
+	--base-font-size: calc(16px + 6 * ((100vw - 320px) / 1600));
 }
 
 body {
  	--bg-color: #fff;
  	--bg-content-color: #fff;
- 	--body-color: #111;
+ 	--color-text: #111;
  	--title-color: #111;
  	--border-color:  #ddd;
   --spacing-m: 2rem;
@@ -21,7 +25,7 @@ body {
 
 @media screen and (max-width: 650px) {
 	body {
-		--space: 1rem;
+		--spacing-m: 1rem;
 		--header-height: 60px;
 	}
 }

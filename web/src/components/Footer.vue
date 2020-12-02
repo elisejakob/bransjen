@@ -21,7 +21,13 @@ export default {
 
 <style lang="scss">
 .site-footer {
-  padding: var(--spacing-m);
+  position: fixed;
+  background: pink;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: .6rem var(--spacing-m);
+  border-top: 1px solid var(--color-text);
   .totop {
     text-align: right;
   }

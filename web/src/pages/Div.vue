@@ -1,7 +1,6 @@
 <template>
-  <Layout>
-    <SketchGrid />
-  </Layout>
+  <DivLayout>
+  </DivLayout>
 </template>
 
 <page-query>
@@ -16,11 +15,11 @@
 </page-query>
 
 <script>
-import SketchGrid from '~/components/SketchGrid'
+import DivLayout from '~/layouts/Div'
 
 export default {
   components: {
-    SketchGrid
+    DivLayout
   }
 }
 </script>

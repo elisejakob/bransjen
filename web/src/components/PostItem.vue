@@ -3,16 +3,16 @@
     <g-image
       v-if="project.mainImage"
       class="project-image"
-      :src="$urlForImage(project.mainImage, $page.metadata.sanityOptions).height(560).width(400).auto('format').url()"
+      :src="$urlForImage(project.mainImage, $page.metadata.sanityOptions).height(300).width(400).auto('format').url()"
     />
-    <div class="project-content">
+    <div class="project-text">
       <h2 class="project-title" v-html="project.title" />
       <div class="project-categories">
         <span v-for="(category, index) in project.categories" :key="`${project.id}-category-${index}`">
           {{ category.title }}
         </span>
       </div>
-      <g-link class="project-link" :to="project.slug.current">Link</g-link>
+      <g-link class="project-link" :to="`/prosjekter/${project.slug.current}`">Link</g-link>
     </div>
   </div>
 </template>
@@ -40,9 +40,19 @@ export default {
     width: 100%;
   }
 
+  &-text {
+    margin: 1rem 0;
+  }
+
   &-title {
-    margin-top: 0;
-    font-size: 2rem;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  &-categories {
+    span {
+      font-size: .8rem;
+    }
   }
 
   &-link {
@@ -57,9 +67,19 @@ export default {
     z-index: 0;
   }
 
-  transition: transform .2s ease-in-out;
+  transition: transform .1s ease-in-out;
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
+  }
+}
+@media (max-width: 1000px) {
+  .project {
+    grid-column: span 6;
+  }
+}
+@media (max-width: 600px) {
+  .project {
+    grid-column: span 12;
   }
 }
 </style>

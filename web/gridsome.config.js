@@ -18,7 +18,8 @@ module.exports = {
     'Bransjen er et lite designstudio som gjør så godt de kan. Noen ganger lager de bæsjeanimasjoner og noen ganger vinner de priser.',
 
   templates: {
-    SanityProject: '/:slug__current'
+    SanityProject: '/prosjekter/:slug__current',
+    SanitySketch: '/div/:slug__current'
   },
 
   plugins: [

@@ -1,11 +1,18 @@
 <template>
   <div class="projects">
-    <PostItem
-      v-for="project in $static.projects.edges"
-      :key="project.node.id"
-      :project="project.node"
-      :metadata="$static.metadata"
-    />
+    <div class="category-nav">
+      <span v-for="category in $static.categories.edges" :key="category.node.title">
+        {{ category.node.title }}
+      </span>
+    </div>
+    <div class="project-grid">
+      <PostItem
+        v-for="project in visibleProjects"
+        :key="project.node.id"
+        :project="project.node"
+        :metadata="$static.metadata"
+      />
+    </div>
   </div>
 </template>
 
@@ -68,14 +75,32 @@ export default {
   },
   components: {
     PostItem
+  },
+  computed: {
+    visibleProjects() {
+      return this.$static.projects.edges
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.projects {
+.project-grid {
   display: grid;
   grid-gap: var(--spacing-m);
   grid-template-columns: repeat(12, 1fr);
+}
+
+.category-nav {
+  margin: -1rem 0 var(--spacing-m);
+
+  span {
+    display: inline-block;
+    margin-right: 2rem;
+    font-family: var(--sans-serif);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 </style>

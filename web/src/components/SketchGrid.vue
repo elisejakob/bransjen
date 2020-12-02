@@ -1,10 +1,12 @@
 <template>
   <div class="projects">
-    <VueMasonryWall :items="$static.sketches.edges">
+    <VueMasonryWall :items="$static.sketches.edges" :options="options">
       <template v-slot:default="{item}">
-        <div class="item">
-          {{ item.title }}
-        </div>
+        <SketchItem
+          :key="item.node.id"
+          :sketch="item.node"
+          :metadata="$static.metadata"
+        />
       </template>
     </VueMasonryWall>
   </div>
@@ -52,16 +54,30 @@
 </static-query>
 
 <script>
-import VueMasonryWall from 'vue-masonry-wall'
+import VueMasonryWall from 'vue-masonry-wall';
+import SketchItem from '~/components/SketchItem';
 
 export default {
   components: {
-    VueMasonryWall
+    VueMasonryWall,
+    SketchItem
   },
   props: {
     limit: {
       type: Number,
       default: 100
+    }
+  },
+  data() {
+    return {
+      options: {
+        width: 300,
+        padding: {
+          default: 12,
+          1: 6,
+          2: 8
+        }
+      }
     }
   }
 }
@@ -69,8 +85,7 @@ export default {
 
 <style lang="scss" scoped>
 .projects {
-  display: grid;
-  grid-gap: var(--spacing-m);
-  grid-template-columns: repeat(12, 1fr);
+  width: 1200;
+  margin: 0 auto;
 }
 </style>

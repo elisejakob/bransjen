@@ -15,6 +15,9 @@
         class="project-image"
       />
     </div>
+    <div v-for="(item, index) in $page.project.gallery" :key="`content-${index}`">
+      {{item}}
+    </div>
   </Layout>
 </template>
 
@@ -70,6 +73,28 @@ query project ($id: ID!) {
     gallery {
       ... on SanityFigure {
         _type
+        asset {
+          url
+        }
+      }
+      ... on SanityFigureTwoColumn {
+        _type
+        image1 {
+          asset {
+            url
+          }
+        }
+        image2 {
+          asset {
+            url
+          }
+        }
+      }
+      ... on SanityVideo {
+        _type
+        asset {
+          url
+        }
       }
     }
   }
