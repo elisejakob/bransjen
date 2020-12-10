@@ -67,9 +67,14 @@ export default {
     z-index: 0;
   }
 
-  transition: transform .1s ease-in-out;
+  img {
+    transition: transform .2s ease-in-out;
+  }
   &:hover {
-    transform: translateY(-5px);
+    img {
+      transform: scale(1.02) translateY(-3px);
+      box-shadow: 0 3px 20px rgba(0, 0, 0, .2);
+    }
   }
 }
 @media (max-width: 1000px) {

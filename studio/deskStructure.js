@@ -10,7 +10,7 @@ export default () =>
     .title('Innhold')
     .items([
       S.listItem()
-        .title('Innstillinger')
+        .title('Generelt')
         .child(
           S.editor()
             .id('siteSettings')

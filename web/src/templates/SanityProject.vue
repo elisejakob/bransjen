@@ -1,22 +1,52 @@
 <template>
   <Layout>
     <div class="project">
-      <div class="project-text">
-        <h1 class="project-title">{{ $page.project.title }}</h1>
-        <BlockContent
-          class="project-content"
-          :blocks="$page.project._rawExcerpt"
-          v-if="$page.project._rawExcerpt"
-        />
-      </div>
       <img
         v-if="$page.project.mainImage"
-        :src="$urlForImage($page.project.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
+        :src="$urlForImage($page.project.mainImage, $page.metadata.sanityOptions).width(1200).auto('format').url()"
         class="project-image"
       />
+      <div class="project-text">
+        <div>
+          <h1 class="project-title">{{ $page.project.title }}</h1>
+          <div class="project-meta">
+            {{ $page.project.client }}
+          </div>
+        </div>
+        <div class="project-lead">
+          <BlockContent
+            :blocks="$page.project._rawExcerpt"
+            v-if="$page.project._rawExcerpt"
+          />
+        </div>
+      </div>
+      <BlockContent
+        class="project-content"
+        :blocks="$page.project._rawBody"
+        v-if="$page.project._rawBody"
+      />
     </div>
-    <div v-for="(item, index) in $page.project.gallery" :key="`content-${index}`">
-      {{item}}
+    <div class="project-gallery">
+      <div v-for="(item, index) in $page.project.gallery" :key="`content-${index}`">
+        <div v-if="item._type === 'figure'" class="onecolumn">
+          <img
+            :src="$urlForImage(item.asset.url, $page.metadata.sanityOptions).width(1200).auto('format').url()"
+          />
+        </div>
+        <div v-if="item._type === 'figureTwoColumn'" class="twocolumn">
+          <img
+            :src="$urlForImage(item.image1.asset.url, $page.metadata.sanityOptions).width(600).auto('format').url()"
+          />
+          <img
+            :src="$urlForImage(item.image2.asset.url, $page.metadata.sanityOptions).width(600).auto('format').url()"
+          />
+        </div>
+        <div v-if="item._type === 'video'" class="video">
+          <video controls>
+            <source :src="item.asset.url" type="video/mp4" />
+          </video>
+        </div>
+      </div>
     </div>
   </Layout>
 </template>
@@ -57,6 +87,7 @@ query project ($id: ID!) {
     }
     client
     _rawExcerpt
+    _rawBody
     relatedProjects {
       title
       _id
@@ -103,51 +134,59 @@ query project ($id: ID!) {
 
 <style lang="scss" scoped>
 .project {
-  margin: 0;
-  grid-column: 1 / span 10;
-  display: grid;
-  grid-gap: var(--space);
-  grid-template-columns: repeat(10, 1fr);
+  margin: 0 auto;
+  max-width: 1000px;
 
   &-image {
-    grid-column: 6 / span 5;
+    width: 100%;
+    margin-bottom: 2rem;
   }
 
   &-text {
-    grid-column: 1 / span 5;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
   }
 
   &:empty {
     display: none;
   }
   &-title {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 900;
   }
-
+  &-meta {
+    opacity: .6;
+  }
+  &-lead {
+    font-size: 1.2rem;
+    font-family: var(--sans-serif);
+  }
   &-content {
-    p {
-      font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  p {
+    max-width: none;
+  }
+
+  &-gallery {
+    max-width: 1000px;
+    margin: 2rem auto;
+    .onecolumn, .twocolumn, .video {
+      margin-bottom: 2rem;
     }
-    img {
-      width: calc(100% + var(--space) * 2);
-      margin-left: calc(var(--space) * -1);
-      display: block;
-      max-width: none;
+    .video {
+      video {
+        width: 100%;
+      }
+    }
+    .twocolumn {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 2rem;
     }
   }
 
-  blockquote {
-    margin: 3rem 0 6rem;
-    font-size: 1.8rem;
-    line-height: 1.4;
-    padding-left: 2rem;
-    border-left: 6px solid crimson;
-  }
-}
-
-.definition {
-  max-width: 40rem;
-  font-size: 1.2rem;
 }
 </style>

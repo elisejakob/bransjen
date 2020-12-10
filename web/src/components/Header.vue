@@ -5,7 +5,7 @@
     </g-link>
     <nav>
       <g-link to="/om">Om Bransjen</g-link>
-      <a href="/">Prosjekter</a>
+      <a href="/prosjekter">Prosjekter</a>
       <g-link to="/div">Div</g-link>
     </nav>
     <div class="smiley">

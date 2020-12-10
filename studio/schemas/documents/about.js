@@ -15,24 +15,19 @@ export default {
       title: 'Tittel'
     },
     {
-      name: 'excerpt',
+      name: 'lead',
       title: 'Ingress',
+      type: 'text'
+    },
+    {
+      name: 'excerpt',
+      title: 'Brødtekst',
       type: 'simplePortableText'
     },
     {
       name: 'mainImage',
       title: 'Hovedbilde',
       type: 'figure'
-    },
-    {
-      name: 'keywords',
-      type: 'array',
-      title: 'Stikkord',
-      description: 'Stikkord som brukes av søkemotorer.',
-      of: [{type: 'string'}],
-      options: {
-        layout: 'tags'
-      }
     }
   ]
 }

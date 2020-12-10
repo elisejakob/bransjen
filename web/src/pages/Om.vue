@@ -1,16 +1,18 @@
 <template>
   <Layout>
-    <BlockContent
-      class="about-content"
-      :blocks="$page.about._rawExcerpt"
-      v-if="$page.about._rawExcerpt"
-    />
-    <figure class="about-image">
-      <img
-        v-if="$page.about.mainImage"
-        :src="$urlForImage($page.about.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
+    <div class="about-main">
+      <BlockContent
+        class="about-content"
+        :blocks="$page.about._rawExcerpt"
+        v-if="$page.about._rawExcerpt"
       />
-    </figure>
+      <figure class="about-image">
+        <img
+          v-if="$page.about.mainImage"
+          :src="$urlForImage($page.about.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
+        />
+      </figure>
+    </div>
     <News />
   </Layout>
 </template>
@@ -62,8 +64,15 @@ export default {
 
 <style lang="scss" scoped>
 .about {
+  &-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+    align-items: center;
+  }
   &-content {
     margin: 0 0 2rem;
+    font-size: 1.6rem;
   }
 }
 </style>

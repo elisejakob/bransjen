@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <PostGridIndex />
+    <PostGrid />
   </Layout>
 </template>
 
@@ -16,11 +16,11 @@
 </page-query>
 
 <script>
-import PostGridIndex from '~/components/PostGridIndex'
+import PostGrid from '~/components/PostGrid'
 
 export default {
   components: {
-    PostGridIndex
+    PostGrid
   }
 }
 </script>

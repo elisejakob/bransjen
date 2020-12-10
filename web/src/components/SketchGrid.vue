@@ -1,14 +1,16 @@
 <template>
   <div class="projects">
-    <VueMasonryWall :items="$static.sketches.edges" :options="options">
-      <template v-slot:default="{item}">
-        <SketchItem
-          :key="item.node.id"
-          :sketch="item.node"
-          :metadata="$static.metadata"
-        />
-      </template>
-    </VueMasonryWall>
+    <ClientOnly>
+      <VueMasonryWall :items="$static.sketches.edges" :options="options">
+        <template v-slot:default="{item}">
+          <SketchItem
+            :key="item.node.id"
+            :sketch="item.node"
+            :metadata="$static.metadata"
+          />
+        </template>
+      </VueMasonryWall>
+    </ClientOnly>
   </div>
 </template>
 

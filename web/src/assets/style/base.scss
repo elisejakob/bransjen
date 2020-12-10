@@ -22,9 +22,29 @@ body {
  	transition: color .6s, background-color .6s;
  	font-family: var(--serif);
   margin: 0;
-  padding: 0 0 5rem;
+  padding: 0 0 0;
   line-height: 1.6;
   font-weight: 300;
+  position: relative;
+}
+
+main {
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fade .4s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+main, .page {
+  position: static;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 a:not(.button) {
@@ -40,11 +60,7 @@ img {
 
 p {
   margin: 0;
-  max-width: 29em;
-
-  + p {
-    text-indent: 2.4em;
-  }
+  max-width: 30em;
 }
 
 h1, h2, h3, h4, h5 {

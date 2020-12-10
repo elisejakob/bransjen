@@ -44,6 +44,11 @@ export default {
       type: 'simplePortableText'
     },
     {
+      name: 'body',
+      title: 'Brødtekst',
+      type: 'simplePortableText'
+    },
+    {
       name: 'categories',
       title: 'Kategorier',
       type: 'array',
@@ -72,10 +77,6 @@ export default {
         },
         {
           type: 'video'
-        },
-        {
-          type: 'image',
-          title: 'String'
         }
       ]
     },
