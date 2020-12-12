@@ -1,0 +1,33 @@
+@import url("https://use.typekit.net/csj5zkc.css");
+@import url('https://fonts.googleapis.com/css?family=Poppins:500,500i,600,600i&display=swap');
+
+
+:root {
+  --sans-serif: 'poppins', sans-serif;
+  --serif: 'bookman-jf-pro', serif;
+}
+
+html {
+	--base-font-size: calc(16px + 6 * ((100vw - 320px) / 1600));
+}
+
+body {
+  --color-text: #000;
+  --color-hover: pink;
+
+  --spacing-m: 2rem;
+}
+
+@media screen and (max-width: 650px) {
+	body {
+		--spacing-m: 1.6rem;
+		--header-height: 60px;
+	}
+}
+
+/* MEDIA QUERIES — — — — — — — — — — — — */
+
+$media-s: 830px;
+$media-m: 1200px;
+$media-l: 1600px;
+$media-xl: 1900px;

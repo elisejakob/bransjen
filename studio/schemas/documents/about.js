@@ -17,22 +17,17 @@ export default {
     {
       name: 'excerpt',
       title: 'Ingress',
+      type: 'text'
+    },
+    {
+      name: 'body',
+      title: 'Brødtekst',
       type: 'simplePortableText'
     },
     {
       name: 'mainImage',
       title: 'Hovedbilde',
       type: 'figure'
-    },
-    {
-      name: 'keywords',
-      type: 'array',
-      title: 'Stikkord',
-      description: 'Stikkord som brukes av søkemotorer.',
-      of: [{type: 'string'}],
-      options: {
-        layout: 'tags'
-      }
     }
   ]
 }

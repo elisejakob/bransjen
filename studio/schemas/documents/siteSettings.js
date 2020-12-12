@@ -1,7 +1,7 @@
 export default {
   name: 'siteSettings',
   type: 'document',
-  title: 'Site Settings',
+  title: 'Generelt',
   __experimental_actions: [
     // 'create',
     'update',
@@ -9,6 +9,11 @@ export default {
     'publish'
   ],
   fields: [
+    {
+      name: 'logo',
+      title: 'Logo',
+      type: 'image'
+    },
     {
       name: 'title',
       type: 'string',
@@ -21,14 +26,17 @@ export default {
       description: 'Beskrivelse som dukker opp i søkemotorer og sosiale medier.'
     },
     {
-      name: 'keywords',
-      type: 'array',
-      title: 'Stikkord',
-      description: 'Stikkord som brukes av søkemotorer.',
-      of: [{type: 'string'}],
-      options: {
-        layout: 'tags'
-      }
+      name: 'footer',
+      type: 'footer',
+      title: 'Footer',
+      validation: Rule => Rule.error('Mangler footer-info!').required()
+    },
+    {
+      name: 'ogimg',
+      type: 'image',
+      title: 'Facebookbilde',
+      description: 'Vises når man deler siden på Facebook o.l. hvis ikke et annet bilde er tilgjengelig.',
+      validation: Rule => Rule.error('Mangler Facebookbilde!').required(),
     }
   ]
 }

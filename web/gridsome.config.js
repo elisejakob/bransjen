@@ -1,0 +1,37 @@
+// This is where project configuration and plugin options are located.
+// Learn more: https://gridsome.org/docs/config
+
+// Changes here requires a server restart.
+// To restart press CTRL + C in terminal and run `gridsome develop`
+// Load variables from `.env` as soon as possible
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`
+})
+
+const clientConfig = require('./client-config')
+
+const isProd = process.env.NODE_ENV === 'production'
+
+module.exports = {
+  siteName: 'Bransjen',
+  siteDescription:
+    'Bransjen er et lite designstudio som gjør så godt de kan. Noen ganger lager de bæsjeanimasjoner og noen ganger vinner de priser.',
+
+  templates: {
+    SanityProject: '/prosjekter/:slug__current',
+    SanitySketch: '/div/:slug__current'
+  },
+
+  plugins: [
+    {
+      use: 'gridsome-source-sanity',
+      options: {
+        ...clientConfig.sanity,
+        typeName: 'Sanity',
+        token: process.env.SANITY_TOKEN,
+        overlayDrafts: !isProd,
+        watchMode: !isProd
+      }
+    }
+  ]
+}
