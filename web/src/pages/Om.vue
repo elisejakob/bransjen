@@ -1,11 +1,16 @@
 <template>
   <Layout>
     <div class="about-main">
-      <BlockContent
-        class="about-content"
-        :blocks="$page.about._rawExcerpt"
-        v-if="$page.about._rawExcerpt"
-      />
+      <div class="about-text">
+        <p class="about-lead">
+          {{ $page.about.excerpt }}
+        </p>
+        <BlockContent
+          class="about-content"
+          :blocks="$page.about._rawBody"
+          v-if="$page.about._rawBody"
+        />
+      </div>
       <figure class="about-image">
         <img
           v-if="$page.about.mainImage"
@@ -27,7 +32,8 @@
   }
   about: sanityAbout(id: "about") {
     title
-    _rawExcerpt
+    excerpt
+    _rawBody
     mainImage {
       asset {
         _id
@@ -68,11 +74,22 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
-    align-items: center;
+    margin-bottom: 7rem;
   }
-  &-content {
+  &-lead {
     margin: 0 0 2rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    margin-right: 36%;
+  }
+}
+@media (max-width: 900px) {
+  .about {
+    &-lead {
+      margin-right: 0;
+    }
+    &-main {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>

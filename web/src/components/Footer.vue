@@ -72,8 +72,8 @@ export default {
       transform: rotate(90deg);
     }
   }
-  a:hover {
-    cursor: url(/graphics/smiley-cursor-yes.svg), auto;
+  a {
+    text-decoration: none;
   }
 }
 </style>

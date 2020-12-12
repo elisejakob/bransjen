@@ -12,19 +12,15 @@ html {
 }
 
 body {
- 	--bg-color: #fff;
- 	--bg-content-color: #fff;
- 	--color-text: #111;
-  --content-width: 860px;
-  --header-height: 80px;
-  --radius: 5px;
+  --color-text: #000;
+  --color-hover: pink;
 
   --spacing-m: 2rem;
 }
 
 @media screen and (max-width: 650px) {
 	body {
-		--spacing-m: 1rem;
+		--spacing-m: 1.6rem;
 		--header-height: 60px;
 	}
 }

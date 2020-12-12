@@ -1,9 +1,14 @@
 <template>
   <div class="projects">
     <div class="category-nav">
-      <span v-for="category in $static.categories.edges" :key="category.node.title">
-        {{ category.node.title }}
-      </span>
+      <div @click="setCategory('all')" class="category">
+        <span v-if="currentCategory === 'all'" class="category-current">Vis alle</span>
+        <span v-else>Vis alle</span>
+      </div>
+      <div v-for="category in $static.categories.edges" :key="category.node.title" @click="setCategory(category.node.title)" class="category">
+        <span v-if="currentCategory === category.node.title" class="category-current">{{ category.node.title }}</span>
+        <span v-else>{{ category.node.title }}</span>
+      </div>
     </div>
     <div class="project-grid">
       <PostItem
@@ -76,9 +81,31 @@ export default {
   components: {
     PostItem
   },
+  data() {
+    return {
+      currentCategory: 'all'
+    }
+  },
   computed: {
     visibleProjects() {
-      return this.$static.projects.edges
+      const projects = this.$static.projects.edges;
+      if (this.currentCategory !== 'all') {
+        const filteredProjects = [];
+        for (let i = 0; i < projects.length; i++) {
+          if (projects[i].node.categories.some(category => {
+              return this.currentCategory === category.title
+            })) {
+            filteredProjects.push(projects[i])
+          }
+        }
+        return filteredProjects
+      }
+      return projects
+    }
+  },
+  methods: {
+    setCategory(category) {
+      this.currentCategory = category
     }
   }
 }
@@ -94,13 +121,30 @@ export default {
 .category-nav {
   margin: -1rem 0 var(--spacing-m);
 
-  span {
+  .category {
     display: inline-block;
-    margin-right: 2rem;
+    margin-right: .5rem;
+    padding: 0 .6rem;
     font-family: var(--sans-serif);
+    font-size: .9rem;
+    background: #eee;
+    transition: all .1s ease-in-out;
     &:hover {
-      text-decoration: underline;
+      background: var(--color-hover);
     }
+    &-current {
+      opacity: .6;
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .project-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 </style>

@@ -31,11 +31,15 @@
 
 <style lang="scss" scoped>
 .news {
+  max-width: 32rem;
+  margin: 0 auto;
   h2 {
     margin-bottom: 4rem;
+    display: inline-block;
+    padding-bottom: .3rem;
+    border-bottom: 2px solid var(--color-text);
   }
   article {
-    max-width: 32rem;
     margin: 0 auto 4rem;
     blockquote {
       font-size: 2rem;

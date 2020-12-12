@@ -15,16 +15,29 @@ export default function(Vue, { router, head, isClient }) {
   // Inject global image URL builder
   Vue.prototype.$urlForImage = urlForImage
 
+  // Do stuff before next page load
+  router.beforeEach((to, from, next) => {
+    if (from.path.includes('div') && to.path.includes('div')) {
+      localStorage.setItem('scrollPos', window.pageYOffset);
+    }
+    next()
+  })
+
+  router.afterEach((to, from) => {
+    if (from.path.includes('div') && to.path.includes('div')) {
+      var y = parseInt(localStorage.getItem('scrollPos'));
+      setTimeout(() => window.scrollTo(0, y), 0)
+    }
+  })
+
   // overwrite the scrollBehavior function with custom one
   router.options.scrollBehavior = function(to, from , savedPosition) {
     if (savedPosition) {
-      return  savedPosition;
+      return savedPosition;
     }
-    if (to.hash) {
-      return {selector: to.hash};
-    }
-    if ((from.name == 'div' && to.name == 'div') || ((from.name == 'div' && to.name == 'div'))) {
-      return window.scrollHeight
+    if (from.path.includes('div') && to.path.includes('div')) {
+      let scrollPos = parseInt(localStorage.getItem('scrollPos'))
+      return {x: 0, y: scrollPos}
     }
     return {x: 0, y: 0}
   }

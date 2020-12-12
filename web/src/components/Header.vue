@@ -1,7 +1,8 @@
 <template>
   <header class="site-header">
     <g-link to="/">
-      <h1>Bransjen</h1>
+      <img v-if="$static.settings.logo" :src="$static.settings.logo.asset.url" class="logo" />
+      <h1 v-else>{{$static.settings.title}}</h1>
     </g-link>
     <nav>
       <g-link to="/om">Om Bransjen</g-link>
@@ -15,10 +16,34 @@
   </header>
 </template>
 
+<static-query>
+query {
+  metadata {
+    sanityOptions{
+      projectId
+      dataset
+    }
+  }
+  settings: sanitySiteSettings(id: "siteSettings") {
+    logo {
+      asset {
+        url
+      }
+    }
+    title
+  }
+}
+</static-query>
+
 <style lang="scss" scoped>
 .site-header {
   padding: var(--spacing-m) var(--spacing-m) 1rem;
   border-bottom: 1px solid var(--color-text);
+
+  .logo {
+    width: 13rem;
+    margin-bottom: 1rem;
+  }
 
   h1 {
     font-size: 2.4rem;
@@ -26,6 +51,7 @@
 
   a {
     text-decoration: none;
+    transition: all .1s ease-in-out;
   }
 
   nav {
@@ -65,5 +91,17 @@
 
 .smiley:hover .happy {
   display: none;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    nav {
+      display: flex;
+      justify-content: space-between;
+      a {
+        margin: 0;
+      }
+    }
+  }
 }
 </style>

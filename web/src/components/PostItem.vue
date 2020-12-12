@@ -8,9 +8,7 @@
     <div class="project-text">
       <h2 class="project-title" v-html="project.title" />
       <div class="project-categories">
-        <span v-for="(category, index) in project.categories" :key="`${project.id}-category-${index}`">
-          {{ category.title }}
-        </span>
+        <span v-for="(category, index) in project.categories" :key="`${project.id}-category-${index}`">{{ category.title }}</span>
       </div>
       <g-link class="project-link" :to="`/prosjekter/${project.slug.current}`">Link</g-link>
     </div>
@@ -50,8 +48,21 @@ export default {
   }
 
   &-categories {
+    opacity: .6;
     span {
       font-size: .8rem;
+      text-transform: lowercase;
+      &:after {
+        content: ", ";
+      }
+      &:last-of-type {
+        &:after {
+          content: "";
+        }
+      }
+      &:first-of-type {
+        text-transform: none;
+      }
     }
   }
 
@@ -67,24 +78,14 @@ export default {
     z-index: 0;
   }
 
-  img {
-    transition: transform .2s ease-in-out;
-  }
-  &:hover {
-    img {
-      transform: scale(1.02) translateY(-3px);
-      box-shadow: 0 3px 20px rgba(0, 0, 0, .2);
-    }
-  }
+  transform: translateY(10px);
+  animation: fade .3s ease-in-out;
+  animation-fill-mode: forwards;
 }
-@media (max-width: 1000px) {
-  .project {
-    grid-column: span 6;
-  }
-}
-@media (max-width: 600px) {
-  .project {
-    grid-column: span 12;
+
+@keyframes fade {
+  to {
+    transform: translateY(0);
   }
 }
 </style>

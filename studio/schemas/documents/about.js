@@ -15,12 +15,12 @@ export default {
       title: 'Tittel'
     },
     {
-      name: 'lead',
+      name: 'excerpt',
       title: 'Ingress',
       type: 'text'
     },
     {
-      name: 'excerpt',
+      name: 'body',
       title: 'Brødtekst',
       type: 'simplePortableText'
     },

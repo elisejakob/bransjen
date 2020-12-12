@@ -41,16 +41,6 @@
       }
     }
   }
-  categories: allSanityCategory(
-    limit: 12
-  ) {
-    edges {
-      node {
-        id
-        title
-      }
-    }
-  }
 }
 
 </static-query>

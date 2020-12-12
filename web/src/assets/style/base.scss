@@ -31,7 +31,6 @@ body {
 main {
   margin: 0 auto;
   opacity: 0;
-  transform: translateY(10px);
   animation: fade .4s ease-in-out;
   animation-fill-mode: forwards;
 }
@@ -43,14 +42,15 @@ main, .page {
 @keyframes fade {
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 a:not(.button) {
   color: inherit;
+  transition: all .2s ease-in-out;
   &:hover {
     text-decoration: underline;
+    color: var(--color-hover);
   }
 }
 

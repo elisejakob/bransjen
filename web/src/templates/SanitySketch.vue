@@ -10,10 +10,10 @@
         <div class="sketch-text">{{ $page.sketch.title }}</div>
       </div>
       <div class="buttons">
-        <g-link to="/div/yoga" class="nav left">
+        <g-link v-if="previousSketch" :to="`/div/${previousSketch}`" class="nav left">
           <img src="/graphics/arrow-left.svg" alt="Pil til venstre" />
         </g-link>
-        <g-link to="/div/yoga" class="nav right">
+        <g-link v-if="nextSketch" :to="`/div/${nextSketch}`" class="nav right">
           <img src="/graphics/arrow-right.svg" alt="Pil til høyre" />
         </g-link>
       </div>
@@ -25,16 +25,6 @@
     </DivLayout>
   </div>
 </template>
-
-<script>
-import DivLayout from '~/layouts/Div'
-
-export default {
-  components: {
-    DivLayout
-  }
-}
-</script>
 
 <page-query>
 query sketch ($id: ID!) {
@@ -57,8 +47,58 @@ query sketch ($id: ID!) {
       current
     }
   }
+  sketches: allSanitySketch(
+    filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+  ) {
+    edges {
+      node {
+        id
+        slug {
+          current
+        }
+      }
+    }
+  }
 }
 </page-query>
+
+<script>
+import DivLayout from '~/layouts/Div'
+
+export default {
+  components: {
+    DivLayout
+  },
+  computed: {
+    sketchIds() {
+      const sketches = this.$page.sketches.edges;
+      const ids = [];
+      for (let i = 0; i < this.$page.sketches.edges.length; i++) {
+        ids.push(this.$page.sketches.edges[i].node.id)
+      }
+      return ids
+    },
+    nextSketch() {
+      const sketches = this.sketchIds;
+      const currentIndex = sketches.indexOf(this.$page.sketch.id);
+      const nextIndex = (currentIndex + 1) % sketches.length;
+      if ((nextIndex < this.$page.sketches.edges.length) && (nextIndex !== 0)) {
+        return this.$page.sketches.edges[nextIndex].node.slug.current
+      }
+      return null
+    },
+    previousSketch() {
+      const sketches = this.sketchIds;
+      const currentIndex = sketches.indexOf(this.$page.sketch.id);
+      const previousIndex = (currentIndex - 1) % sketches.length;
+      if (previousIndex > -1) {
+        return this.$page.sketches.edges[previousIndex].node.slug.current
+      }
+      return null
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .modal {
@@ -88,10 +128,11 @@ query sketch ($id: ID!) {
 }
 
 .sketch-image {
-  width: 50%;
-  height: auto;
+  max-width: 50%;
+  max-height: 80vh;
   margin: 0 auto;
   background: #fff;
+  object-fit: contain;
 }
 
 .sketch-text {

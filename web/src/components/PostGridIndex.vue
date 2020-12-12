@@ -1,9 +1,9 @@
 <template>
   <div class="projects">
     <div class="project-grid">
-      <div class="intro">
-        {{ $static.about.lead }}
-      </div>
+      <p class="intro">
+        {{ $static.about.excerpt }}
+      </p>
       <PostItem
         v-for="(project, index) in selectedProjects"
         :key="project.node.id"
@@ -34,7 +34,7 @@
     }
   }
   about: sanityAbout(id: "about") {
-    lead
+    excerpt
   }
   projects: allSanityProject(
     filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
@@ -127,10 +127,10 @@ export default {
   display: grid;
   grid-gap: var(--spacing-m);
   grid-template-columns: repeat(12, 1fr);
-  padding-bottom: 12rem;
 
   .intro {
-    grid-column: 1 / span 4;
+    grid-column: span 4;
+    font-size: 1.4rem;
   }
 
   .project {
@@ -141,6 +141,9 @@ export default {
     &:nth-of-type(even) {
       transform: translate(0, 20%);
     }
+    &:nth-of-type(2) {
+      transform: translate(20%, 20%);
+    }
   }
 
   .sketch {
@@ -150,9 +153,62 @@ export default {
     z-index: 10;
 
     &:nth-of-type(even) {
-      transform: translate(-50%, 50%);
+      transform: translate(-30%, 20%);
+    }
+    &:nth-of-type(8) {
+      transform: translate(20%, 0);
     }
   }
-
+}
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(8, 1fr);
+    .intro {
+      grid-column: span 8;
+    }
+    .project {
+      padding: 0 0 0 10%;
+      transform: none;
+      &:nth-of-type(even) {
+        padding: 0 10% 0 0;
+        transform: none;
+      }
+    }
+    .sketch {
+      grid-column: span 4;
+      transform: none;
+      width: 100%;
+      padding: 0 10% 0 20%;
+      margin-bottom: -5rem;
+      &:nth-of-type(even) {
+        transform: none;
+        padding: 0 20% 0 10%;
+      }
+    }
+  }
+}
+@media (max-width: 700px) {
+  .project-grid {
+    grid-template-columns: repeat(4, 1fr);
+    .project {
+      padding: 0 0 0 10%;
+      transform: none;
+      &:nth-of-type(even) {
+        padding: 0 10% 0 0;
+        transform: none;
+      }
+    }
+    .sketch {
+      grid-column: span 4;
+      transform: none;
+      width: 100%;
+      padding: 0 10% 0 20%;
+      margin-bottom: -5rem;
+      &:nth-of-type(even) {
+        transform: none;
+        padding: 0 20% 0 10%;
+      }
+    }
+  }
 }
 </style>

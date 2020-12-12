@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{ '--color-hover': $static.settings.footer.color.hex}">
     <Header />
     <div class="page">
       <main class="site-main">
@@ -10,6 +10,24 @@
     <Footer />
   </div>
 </template>
+
+<static-query>
+query {
+  metadata {
+    sanityOptions{
+      projectId
+      dataset
+    }
+  }
+  settings: sanitySiteSettings(id: "siteSettings") {
+    footer {
+      color {
+        hex
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
 import Header from '~/components/Header'
@@ -27,6 +45,9 @@ export default {
 
 <style lang="scss" scoped>
 .site-main {
-  padding: var(--spacing-m);
+  padding: var(--spacing-m) var(--spacing-m) 12rem;
+  animation: none;
+  opacity: 1;
+  transform: none;
 }
 </style>
