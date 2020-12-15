@@ -21,7 +21,6 @@
         class="sketch"
       />
     </div>
-    featured: {eq: true}
   </div>
 </template>
 
@@ -37,7 +36,7 @@
     excerpt
   }
   projects: allSanityProject(
-    filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+    filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}, featured: {eq: true}}
   ) {
     edges {
       node {
@@ -61,7 +60,7 @@
     }
   }
   sketches: allSanitySketch(
-    filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+    filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}, featured: {eq: true}}
   ) {
     edges {
       node {
