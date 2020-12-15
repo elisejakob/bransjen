@@ -18,6 +18,7 @@ import figure from './objects/figure'
 import video from './objects/video'
 import figureTwoColumn from './objects/figureTwoColumn'
 import simplePortableText from './objects/simplePortableText'
+import gradientPalette from './objects/gradientPalette'
 import footer from './objects/footer'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -32,6 +33,7 @@ export default createSchema({
     video,
     figureTwoColumn,
     simplePortableText,
+    gradientPalette,
     footer,
     // The following are document types which will appear in the studio.
     category,

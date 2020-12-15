@@ -34,10 +34,20 @@ export default {
       type: 'boolean'
     },
     {
+      title: 'Hvit bakgrunn over gradient',
+      name: 'whitebg',
+      type: 'boolean'
+    },
+    {
       name: 'mainImage',
       title: 'Hovedbilde',
       type: 'figure'
-    }
+    },
+    {
+      name: 'colors',
+      type: 'gradientPalette',
+      validation: Rule => Rule.error('Mangler fargepalett!').required(),
+    },
   ],
   preview: {
     select: {

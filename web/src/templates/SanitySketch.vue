@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div class="modal">
+    <div class="modal" :style="cssVars">
       <div class="sketch-image-wrapper">
         <img
           v-if="$page.sketch.mainImage"
           :src="$urlForImage($page.sketch.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
           class="sketch-image"
+          :class="{ whitebg: $page.sketch.whitebg }"
         />
         <div class="sketch-text">{{ $page.sketch.title }}</div>
       </div>
@@ -37,6 +38,7 @@ query sketch ($id: ID!) {
   sketch: sanitySketch (id: $id) {
     id
     title
+    whitebg
     mainImage {
       asset {
         _id
@@ -45,6 +47,22 @@ query sketch ($id: ID!) {
     }
     slug {
       current
+    }
+    colors {
+      gradient1 {
+        rgb {
+          r
+          g
+          b
+        }
+      }
+      gradient2 {
+        rgb {
+          r
+          g
+          b
+        }
+      }
     }
   }
   sketches: allSanitySketch(
@@ -95,7 +113,15 @@ export default {
         return this.$page.sketches.edges[previousIndex].node.slug.current
       }
       return null
-    }
+    },
+    cssVars() {
+      if (this.$page.sketch.colors && this.$page.sketch.colors.gradient1.rgb && this.$page.sketch.colors.gradient2.rgb) {
+        return {
+          '--color-gradient-1': 'rgba(' + this.$page.sketch.colors.gradient1.rgb.r + ',' + this.$page.sketch.colors.gradient1.rgb.g + ',' + this.$page.sketch.colors.gradient1.rgb.b + ',.8)',
+          '--color-gradient-2': 'rgba(' + this.$page.sketch.colors.gradient2.rgb.r + ',' + this.$page.sketch.colors.gradient2.rgb.g + ',' + this.$page.sketch.colors.gradient2.rgb.b + ',.8)',
+        }
+      }
+    },
   }
 }
 </script>
@@ -108,7 +134,7 @@ export default {
   bottom: 0;
   left: 0;
   z-index: 1000;
-  background: linear-gradient(60deg, rgba(255, 187, 0, 0.8), rgba(255, 0, 157, 0.8));
+  background: linear-gradient(60deg, var(--color-gradient-1), var(--color-gradient-2));
   opacity: 0;
   animation: fadeIn .2s forwards;
 }
@@ -131,8 +157,12 @@ export default {
   max-width: 50%;
   max-height: 80vh;
   margin: 0 auto;
-  background: #fff;
+  background: transparent;
   object-fit: contain;
+
+  &.whitebg {
+    background: #fff;
+  }
 }
 
 .sketch-text {
