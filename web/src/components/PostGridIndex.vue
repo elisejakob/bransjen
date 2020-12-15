@@ -4,7 +4,7 @@
       <p class="intro">
         {{ $static.about.excerpt }}
       </p>
-      <PostItem
+      <PostItemIndex
         v-for="(project, index) in selectedProjects"
         :key="project.node.id"
         :project="project.node"
@@ -41,7 +41,7 @@
     edges {
       node {
         id
-        mainImage {
+        indexImage {
           asset {
             _id
           }
@@ -93,7 +93,7 @@
 </static-query>
 
 <script>
-import PostItem from '~/components/PostItem'
+import PostItemIndex from '~/components/PostItemIndex'
 import SketchItem from '~/components/SketchItem'
 
 export default {
@@ -105,7 +105,7 @@ export default {
     showMenu: Boolean
   },
   components: {
-    PostItem,
+    PostItemIndex,
     SketchItem
   },
   computed: {
