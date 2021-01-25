@@ -2,6 +2,9 @@
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+/*
+* {
   cursor: url(/graphics/smiley-cursor.svg), auto;
 }
 *:hover {
@@ -10,7 +13,7 @@
 a:hover {
   cursor: url(/graphics/smiley-cursor-yes.svg), auto;
 }
-
+*/
 html {
   font-size: var(--base-font-size);
   min-height: 100%;

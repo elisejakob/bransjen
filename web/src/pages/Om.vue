@@ -74,7 +74,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
-    margin-bottom: 7rem;
+    margin-bottom: 1rem;
   }
   &-lead {
     margin: 0 0 2rem;

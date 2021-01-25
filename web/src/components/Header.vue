@@ -7,12 +7,12 @@
     <nav>
       <g-link to="/om">Om Bransjen</g-link>
       <a href="/prosjekter">Prosjekter</a>
-      <g-link to="/div">Div</g-link>
+      <g-link to="/div">Diverse</g-link>
+      <a class="smiley" href="/">
+        <img class="sad" src="/graphics/smiley-no.svg" alt="Smiley som ser litt psycho ut" />
+        <img class="happy" src="/graphics/smiley.svg" alt="Smiley som ser litt psycho ut" />
+      </a>
     </nav>
-    <div class="smiley">
-      <img class="sad" src="/graphics/smiley-no.svg" alt="Smiley som ser litt psycho ut" />
-      <img class="happy" src="/graphics/smiley.svg" alt="Smiley som ser litt psycho ut" />
-    </div>
   </header>
 </template>
 
@@ -37,12 +37,11 @@ query {
 
 <style lang="scss" scoped>
 .site-header {
-  padding: var(--spacing-m) var(--spacing-m) 1rem;
-  border-bottom: 1px solid var(--color-text);
+  padding: 2rem 2rem 0;
+  display: flex;
 
   .logo {
-    width: 13rem;
-    margin-bottom: 1rem;
+    width: 12rem;
   }
 
   h1 {
@@ -55,30 +54,32 @@ query {
   }
 
   nav {
+    margin: 0 0 0 auto;
+    font-family: var(--sans-serif);
+    font-size: 1.6rem;
     a {
       display: inline-block;
       margin-right: 2rem;
-      font-family: var(--sans-serif);
-      font-size: 1.2rem;
+      &:hover {
+        color: inherit;
+        text-decoration: underline;
+      }
+    }
+    .smiley {
+      display: inline-block;
+      vertical-align: middle;
+      width: 1.5em;
+      height: 1.5em;
+      position: relative;
+      margin-right: 0;
     }
   }
-}
-.smiley {
-  box-sizing: content-box;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  padding: 1.5em;
 }
 
 .sad, .happy {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 1.5em;
-  right: 1.5em;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .sad {

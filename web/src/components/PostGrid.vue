@@ -123,17 +123,16 @@ export default {
 
   .category {
     display: inline-block;
-    margin-right: .5rem;
-    padding: 0 .6rem;
+    margin-right: 1rem;
     font-family: var(--sans-serif);
     font-size: .9rem;
-    background: #eee;
     transition: all .1s ease-in-out;
     &:hover {
-      background: var(--color-hover);
+      cursor: pointer;
+      text-decoration: underline;
     }
     &-current {
-      opacity: .6;
+      text-decoration: underline;
     }
   }
 }

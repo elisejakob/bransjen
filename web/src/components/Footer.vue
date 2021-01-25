@@ -1,10 +1,8 @@
 <template>
-  <footer class="site-footer" :style="{ background: $static.settings.footer.color.hex}">
+  <footer class="site-footer" :style="{ color: $static.settings.footer.color.hex}">
     <div>
       <a :href="`mailto:${$static.settings.footer.email}`" target="_blank">{{$static.settings.footer.email}}</a>
-    </div>
-    <div>
-      <a :href="`https://instagram.com/${$static.settings.footer.instagram}`" target="_blank">@{{$static.settings.footer.instagram}}</a>
+      <a :href="`https://instagram.com/${$static.settings.footer.instagram}`" target="_blank">Instagram</a>
     </div>
     <div>
       <a :href="$static.settings.footer.googlemaps" target="_blank">{{$static.settings.footer.address}}</a>
@@ -52,13 +50,7 @@ export default {
 
 <style lang="scss">
 .site-footer {
-  position: fixed;
-  background: pink;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding: .6rem var(--spacing-m);
-  border-top: 1px solid var(--color-text);
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,6 +66,7 @@ export default {
   }
   a {
     text-decoration: none;
+    display: block;
   }
 }
 </style>
