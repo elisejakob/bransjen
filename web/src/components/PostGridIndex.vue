@@ -10,7 +10,7 @@
         :project="project.node"
         :metadata="$static.metadata"
         :style="{order: index + (index + 1)}"
-        class="project"
+        :class="`project project-${index}`"
       />
       <SketchItem
         v-for="(sketch, index) in selectedSketches"
@@ -18,7 +18,7 @@
         :sketch="sketch.node"
         :metadata="$static.metadata"
         :style="{order: index + (index + 2)}"
-        class="sketch"
+        :class="`sketch sketch-${index}`"
       />
     </div>
   </div>
@@ -129,18 +129,21 @@ export default {
 
   .intro {
     grid-column: span 4;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .project {
-    transform: translate(30%, 60%);
+    display: block;
+    width: auto;
     position: relative;
     z-index: 10;
-
-    &:nth-of-type(even) {
+    &.project-1 {
+      transform: translate(0, 50%);
+    }
+    &.project-2 {
       transform: translate(0, 20%);
     }
-    &:nth-of-type(2) {
+    &.project-3 {
       transform: translate(20%, 20%);
     }
   }
@@ -149,12 +152,14 @@ export default {
     transform: translate(20%, 30%);
     width: 300px;
     position: relative;
-    z-index: 10;
-
-    &:nth-of-type(even) {
+    z-index: 11;
+    &.sketch-1 {
+      transform: translate(-50%, 50%);
+    }
+    &.sketch-2 {
       transform: translate(-30%, 20%);
     }
-    &:nth-of-type(8) {
+    &.sketch-3 {
       transform: translate(20%, 0);
     }
   }

@@ -6,7 +6,7 @@
     </g-link>
     <nav>
       <g-link to="/om">Om Bransjen</g-link>
-      <a href="/prosjekter">Prosjekter</a>
+      <g-link to="/prosjekter">Prosjekter</g-link>
       <g-link to="/div">Diverse</g-link>
       <a class="smiley" href="/">
         <img class="sad" src="/graphics/smiley-no.svg" alt="Smiley som ser litt psycho ut" />
@@ -56,7 +56,7 @@ query {
   nav {
     margin: 0 0 0 auto;
     font-family: var(--sans-serif);
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     a {
       display: inline-block;
       margin-right: 2rem;

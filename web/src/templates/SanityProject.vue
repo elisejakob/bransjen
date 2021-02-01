@@ -10,21 +10,18 @@
         <div>
           <h1 class="project-title">{{ $page.project.title }}</h1>
           <div class="project-meta">
-            {{ $page.project.client }}
+            <div class="project-categories">
+              <span v-for="(category, index) in $page.project.categories" :key="`category-${index}`">{{ category.title }}</span>
+            </div>
+            <!--{{ $page.project.client }}-->
           </div>
         </div>
-        <div class="project-lead">
-          <BlockContent
-            :blocks="$page.project._rawExcerpt"
-            v-if="$page.project._rawExcerpt"
-          />
-        </div>
+        <BlockContent
+          class="project-content"
+          :blocks="$page.project._rawBody"
+          v-if="$page.project._rawBody"
+        />
       </div>
-      <BlockContent
-        class="project-content"
-        :blocks="$page.project._rawBody"
-        v-if="$page.project._rawBody"
-      />
     </div>
     <div class="project-gallery">
       <div v-for="(item, index) in $page.project.gallery" :key="`content-${index}`">
@@ -48,15 +45,28 @@
         </div>
       </div>
     </div>
+    <div class="related">
+      <h2>Relaterte prosjekter</h2>
+      <div class="related-grid">
+        <PostItem
+          v-for="(project, index) in $page.project.relatedProjects"
+          :key="`related-${index}`"
+          :project="project"
+        />
+      </div>
+      <g-link to="/prosjekter">Se alle prosjekter</g-link>
+    </div>
   </Layout>
 </template>
 
 <script>
 import BlockContent from '~/components/BlockContent'
+import PostItem from '~/components/PostItem'
 
 export default {
   components: {
-    BlockContent
+    BlockContent,
+    PostItem
   }
 }
 </script>
@@ -143,9 +153,7 @@ query project ($id: ID!) {
   }
 
   &-text {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+    display: block;
   }
 
   &:empty {
@@ -158,16 +166,26 @@ query project ($id: ID!) {
   &-meta {
     opacity: .6;
   }
-  &-lead {
-    font-size: 1.2rem;
-    font-family: var(--sans-serif);
-  }
   &-content {
     margin-top: 2rem;
+    max-width: 38em;
   }
-
-  p {
-    max-width: none;
+  &-categories {
+    span {
+      font-size: .8rem;
+      text-transform: lowercase;
+      &:after {
+        content: ", ";
+      }
+      &:last-of-type {
+        &:after {
+          content: "";
+        }
+      }
+      &:first-of-type {
+        text-transform: none;
+      }
+    }
   }
 
   &-gallery {
@@ -188,5 +206,20 @@ query project ($id: ID!) {
     }
   }
 
+}
+.related-grid {
+  display: grid;
+  grid-gap: var(--spacing-m);
+  grid-template-columns: repeat(12, 1fr);
+}
+@media (max-width: 1000px) {
+  .related-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .related-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 </style>
