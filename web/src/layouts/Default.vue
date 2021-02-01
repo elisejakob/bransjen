@@ -43,6 +43,6 @@ export default {
 
 <style lang="scss" scoped>
 .site-main {
-  padding: var(--spacing-m) var(--spacing-m) 12rem;
+  padding: 3rem 6rem;
 }
 </style>

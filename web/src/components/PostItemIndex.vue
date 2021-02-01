@@ -30,9 +30,6 @@ export default {
 
 <style lang="scss" scoped>
 .project {
-  position: relative;
-  grid-column: span 4;
-
   &-image {
     display: block;
   }

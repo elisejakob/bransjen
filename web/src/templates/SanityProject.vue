@@ -46,7 +46,10 @@
       </div>
     </div>
     <div class="related">
-      <h2>Relaterte prosjekter</h2>
+      <div class="related-heading">
+        <h2>Relaterte prosjekter</h2>
+        <div>&rarr; <g-link to="/prosjekter">Se alle Bransjens prosjekter</g-link></div>
+      </div>
       <div class="related-grid">
         <PostItem
           v-for="(project, index) in $page.project.relatedProjects"
@@ -54,7 +57,6 @@
           :project="project"
         />
       </div>
-      <g-link to="/prosjekter">Se alle prosjekter</g-link>
     </div>
   </Layout>
 </template>
@@ -109,6 +111,10 @@ query project ($id: ID!) {
           _id
         }
         alt
+      }
+      categories {
+        _id
+        title
       }
     }
     gallery {
@@ -207,10 +213,23 @@ query project ($id: ID!) {
   }
 
 }
+.related {
+  margin: 6rem auto;
+  max-width: 1000px;
+}
+.related-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  h2 {
+    margin: 0;
+  }
+}
 .related-grid {
   display: grid;
   grid-gap: var(--spacing-m);
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(8, 1fr);
 }
 @media (max-width: 1000px) {
   .related-grid {

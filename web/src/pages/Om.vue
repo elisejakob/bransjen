@@ -10,6 +10,12 @@
           :blocks="$page.about._rawBody"
           v-if="$page.about._rawBody"
         />
+        <h2 class="about-clients-heading">Kunder</h2>
+        <BlockContent
+          class="about-clients"
+          :blocks="$page.about._rawClients"
+          v-if="$page.about._rawClients"
+        />
       </div>
       <figure class="about-image">
         <img
@@ -34,6 +40,7 @@
     title
     excerpt
     _rawBody
+    _rawClients
     mainImage {
       asset {
         _id
@@ -73,13 +80,22 @@ export default {
   &-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+    grid-gap: 3rem;
     margin-bottom: 1rem;
   }
   &-lead {
     margin: 0 0 2rem;
     font-size: 1.4rem;
-    margin-right: 36%;
+  }
+  &-content {
+    margin-bottom: 2rem;
+  }
+  &-clients {
+    font-family: var(--sans-serif);
+    &-heading {
+      font-size: 1.2em;
+      text-decoration: underline;
+    }
   }
 }
 @media (max-width: 900px) {

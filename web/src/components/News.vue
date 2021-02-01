@@ -1,5 +1,5 @@
 <template>
-  <div class="news">
+  <div class="news" :style="{ color: $static.settings.footer.color.hex}">
     <h2>Sagt om Bransjen</h2>
     <article v-for="(news, index) in $static.news.edges" :key="index">
       <blockquote>{{ news.node.quote }}</blockquote>
@@ -26,24 +26,39 @@
       }
     }
   }
+  settings: sanitySiteSettings(id: "siteSettings") {
+    footer {
+      color {
+        hex
+      }
+    }
+  }
 }
 </static-query>
 
 <style lang="scss" scoped>
 .news {
-  max-width: 32rem;
+  width: 100%;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 7rem;
+  font-family: var(--sans-serif);
+  font-weight: 700;
+  line-height: 1.2;
   h2 {
-    margin-bottom: 4rem;
-    display: inline-block;
-    padding-bottom: .3rem;
-    border-bottom: 2px solid var(--color-text);
+    grid-column: span 2;
+    text-decoration: underline;
+    margin-bottom: 2rem;
   }
   article {
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem;
     blockquote {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin: 0 0 1rem;
+    }
+    a {
+      font-weight: 400;
     }
   }
 }

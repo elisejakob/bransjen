@@ -37,7 +37,7 @@ query {
 
 <style lang="scss" scoped>
 .site-header {
-  padding: 2rem 2rem 0;
+  padding: 1.5rem 1.5rem 0;
   display: flex;
 
   .logo {
@@ -60,7 +60,7 @@ query {
     a {
       display: inline-block;
       margin-right: 2rem;
-      &:hover {
+      &:hover, &.active {
         color: inherit;
         text-decoration: underline;
       }
@@ -96,6 +96,7 @@ query {
 
 @media (max-width: 700px) {
   .site-header {
+    display: block;
     nav {
       display: flex;
       justify-content: space-between;

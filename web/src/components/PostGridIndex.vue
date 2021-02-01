@@ -1,25 +1,24 @@
 <template>
   <div class="projects">
-    <div class="project-grid">
-      <p class="intro">
-        {{ $static.about.excerpt }}
-      </p>
-      <PostItemIndex
-        v-for="(project, index) in selectedProjects"
-        :key="project.node.id"
-        :project="project.node"
-        :metadata="$static.metadata"
-        :style="{order: index + (index + 1)}"
-        :class="`project project-${index}`"
-      />
-      <SketchItem
-        v-for="(sketch, index) in selectedSketches"
-        :key="sketch.node.id"
-        :sketch="sketch.node"
-        :metadata="$static.metadata"
-        :style="{order: index + (index + 2)}"
-        :class="`sketch sketch-${index}`"
-      />
+    <div class="project-grid" :class="layoutClass">
+      <div class="intro">
+        <p>{{ $static.about.excerpt }}</p>
+      </div>
+      <div v-for="(project, index) in selectedProjects" :key="project.node.id" :class="`wrapper wrapper-${index + 1}`">
+        <div :class="`item item-${index + 1}`">
+          <PostItemIndex
+            :project="project.node"
+            :metadata="$static.metadata"
+            :class="`project project-${index + 1}`"
+          />
+          <SketchItem
+            :key="selectedSketches[index].node.id"
+            :sketch="selectedSketches[index].node"
+            :metadata="$static.metadata"
+            :class="`sketch sketch-${index + 1}`"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -116,6 +115,10 @@ export default {
     selectedSketches() {
       let shuffledSketches = this.$static.sketches.edges.sort(() => 0.5 - Math.random());
       return shuffledSketches.slice(0, 4);
+    },
+    layoutClass() {
+      const classes = ['layout-1', 'layout-2', 'layout-3']
+      return classes[0]
     }
   }
 }
@@ -123,96 +126,83 @@ export default {
 
 <style lang="scss" scoped>
 .project-grid {
-  display: grid;
-  grid-gap: var(--spacing-m);
-  grid-template-columns: repeat(12, 1fr);
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
   .intro {
-    grid-column: span 4;
+    width: 50%;
     font-size: 1.2rem;
+
+    p {
+      max-width: 24rem;
+    }
+  }
+
+  .wrapper {
+    width: 50%;
+    margin-bottom: 3rem;
+    text-align: center;
+    &-2, &-4 {
+      transform: translate(0, -40%);
+    }
+  }
+
+  .item {
+    display: inline-block;
+    position: relative;
   }
 
   .project {
-    display: block;
-    width: auto;
+    display: inline-block;
     position: relative;
+    margin: 0 auto;
     z-index: 10;
-    &.project-1 {
-      transform: translate(0, 50%);
-    }
-    &.project-2 {
-      transform: translate(0, 20%);
-    }
-    &.project-3 {
-      transform: translate(20%, 20%);
-    }
+    text-align: left;
   }
 
   .sketch {
-    transform: translate(20%, 30%);
-    width: 300px;
-    position: relative;
+    position: absolute;
+    width: 16rem;
+    top: 0;
+    right: 0;
     z-index: 11;
-    &.sketch-1 {
-      transform: translate(-50%, 50%);
+  }
+
+  &.layout-1 {
+    .project-1 {
+      transform: translate(50%, 50%);
     }
-    &.sketch-2 {
-      transform: translate(-30%, 20%);
+    .project-2 {
+      transform: translate(0, 20%);
     }
-    &.sketch-3 {
-      transform: translate(20%, 0);
+    .project-3 {
+      transform: translate(20%, 20%);
     }
+    .project-4 {
+      transform: translate(20%, 20%);
+    }
+    .sketch-1 {
+      transform: translate(50%, 0);
+    }
+    .sketch-2 {
+      transform: translate(50%, 50%);
+    }
+    .sketch-3 {
+      transform: translate(50%, 50%);
+    }
+    .sketch-4 {
+      transform: translate(50%, 70%);
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .wrapper {
+    padding: 0 3rem;
   }
 }
 @media (max-width: 900px) {
-  .project-grid {
-    grid-template-columns: repeat(8, 1fr);
-    .intro {
-      grid-column: span 8;
-    }
-    .project {
-      padding: 0 0 0 10%;
-      transform: none;
-      &:nth-of-type(even) {
-        padding: 0 10% 0 0;
-        transform: none;
-      }
-    }
-    .sketch {
-      grid-column: span 4;
-      transform: none;
-      width: 100%;
-      padding: 0 10% 0 20%;
-      margin-bottom: -5rem;
-      &:nth-of-type(even) {
-        transform: none;
-        padding: 0 20% 0 10%;
-      }
-    }
-  }
-}
-@media (max-width: 700px) {
-  .project-grid {
-    grid-template-columns: repeat(4, 1fr);
-    .project {
-      padding: 0 0 0 10%;
-      transform: none;
-      &:nth-of-type(even) {
-        padding: 0 10% 0 0;
-        transform: none;
-      }
-    }
-    .sketch {
-      grid-column: span 4;
-      transform: none;
-      width: 100%;
-      padding: 0 10% 0 20%;
-      margin-bottom: -5rem;
-      &:nth-of-type(even) {
-        transform: none;
-        padding: 0 20% 0 10%;
-      }
-    }
+  .wrapper {
+    width: 100%;
   }
 }
 </style>

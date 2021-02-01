@@ -25,6 +25,11 @@ export default {
       type: 'simplePortableText'
     },
     {
+      name: 'clients',
+      title: 'Kunder',
+      type: 'simplePortableText'
+    },
+    {
       name: 'mainImage',
       title: 'Hovedbilde',
       type: 'figure'
