@@ -5,24 +5,19 @@ export default {
   description: 'Innhold som vises på bunnen av hver side.',
   fields: [
     {
-      name: 'email',
-      type: 'string',
-      title: 'E-postadresse'
-    },
-    {
-      name: 'instagram',
-      type: 'string',
-      title: 'Instagram-brukernavn'
+      name: 'contact',
+      title: 'Kontakt',
+      type: 'simplePortableText'
     },
     {
       name: 'address',
-      type: 'string',
-      title: 'Adresse'
+      title: 'Adresse',
+      type: 'simplePortableText'
     },
     {
-      name: 'googlemaps',
-      type: 'string',
-      title: 'Google Maps-lenke'
+      name: 'credits',
+      title: 'Credits',
+      type: 'simplePortableText'
     },
     {
       name: 'color',

@@ -1,12 +1,21 @@
 <template>
   <footer class="site-footer" :style="{ color: $static.settings.footer.color.hex}">
-    <div>
-      <a :href="`mailto:${$static.settings.footer.email}`" target="_blank">{{$static.settings.footer.email}}</a>
-      <a :href="`https://instagram.com/${$static.settings.footer.instagram}`" target="_blank">Instagram</a>
-    </div>
-    <div>
-      <a :href="$static.settings.footer.googlemaps" target="_blank">{{$static.settings.footer.address}}</a>
-    </div>
+    <BlockContent
+      class="footer-contact"
+      :blocks="$static.settings.footer._rawContact"
+      v-if="$static.settings.footer._rawContact"
+    />
+    <BlockContent
+      class="footer-address"
+      :blocks="$static.settings.footer._rawAddress"
+      v-if="$static.settings.footer._rawAddress"
+    />
+    <BlockContent
+      class="footer-credits"
+      :blocks="$static.settings.footer._rawCredits"
+      v-if="$static.settings.footer._rawCredits"
+      style="color: black; font-size: .8rem;"
+    />
     <div class="totop" @click="toTop()">
       <img src="/graphics/arrow-left.svg" alt="Pil til venstre" />
     </div>
@@ -23,10 +32,9 @@ query {
   }
   settings: sanitySiteSettings(id: "siteSettings") {
     footer {
-      email
-      instagram
-      address
-      googlemaps
+      _rawContact
+      _rawAddress
+      _rawCredits
       color {
         hex
       }
@@ -36,7 +44,12 @@ query {
 </static-query>
 
 <script>
+import BlockContent from '~/components/BlockContent'
+
 export default {
+  components: {
+    BlockContent
+  },
   methods: {
     toTop() {
       window.scrollTo({
@@ -50,14 +63,17 @@ export default {
 
 <style lang="scss">
 .site-footer {
-  padding: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-family: var(--sans-serif);
   .totop {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
     text-align: right;
     width: 40px;
     height: 40px;
+    cursor: pointer;
     img {
       width: 40px;
       height: 40px;
@@ -65,8 +81,24 @@ export default {
     }
   }
   a {
-    text-decoration: none;
-    display: block;
+    text-decoration: underline;
+  }
+}
+.site-footer {
+  padding: 6rem 6rem;
+}
+@media (max-width: 1200px) {
+  .site-footer {
+    padding: 6rem 4rem 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-credits {
+    margin-top: 4rem;
+  }
+}
+@media (max-width: 900px) {
+  .site-footer {
+    padding: 6rem 2rem;
   }
 }
 </style>

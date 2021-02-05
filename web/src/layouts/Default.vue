@@ -45,4 +45,14 @@ export default {
 .site-main {
   padding: 3rem 6rem;
 }
+@media (max-width: 1200px) {
+  .site-main {
+    padding: 3rem 4rem;
+  }
+}
+@media (max-width: 900px) {
+  .site-main {
+    padding: 3rem 2rem;
+  }
+}
 </style>

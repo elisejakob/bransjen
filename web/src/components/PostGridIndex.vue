@@ -118,7 +118,7 @@ export default {
     },
     layoutClass() {
       const classes = ['layout-1', 'layout-2', 'layout-3']
-      return classes[0]
+      return classes[1]
     }
   }
 }
@@ -194,15 +194,76 @@ export default {
       transform: translate(50%, 70%);
     }
   }
+  &.layout-2 {
+    .project-1 {
+      transform: translate(50%, 50%);
+    }
+    .project-2 {
+      transform: translate(0, 20%);
+    }
+    .project-3 {
+      transform: translate(20%, 20%);
+    }
+    .project-4 {
+      transform: translate(20%, 20%);
+    }
+    .sketch-1 {
+      transform: translate(50%, 0);
+    }
+    .sketch-2 {
+      transform: translate(50%, 50%);
+    }
+    .sketch-3 {
+      transform: translate(50%, 50%);
+    }
+    .sketch-4 {
+      transform: translate(50%, 70%);
+    }
+  }
+}
+@media (max-width: 1600px) {
+  .wrapper {
+    padding: 0 2rem;
+  }
 }
 @media (max-width: 1200px) {
   .wrapper {
     padding: 0 3rem;
   }
+  .project-grid .sketch {
+    width: 12rem;
+  }
 }
-@media (max-width: 900px) {
-  .wrapper {
-    width: 100%;
+@media (max-width: 800px) {
+  .project-grid {
+    .intro {
+      font-size: 1rem;
+    }
+    .intro, .wrapper {
+      width: 100%;
+      padding: 0;
+      margin-bottom: 4rem;
+      transform: none !important;
+      text-align: left;
+    }
+    .wrapper:nth-child(odd) {
+      text-align: right;
+      .sketch {
+        width: 50%;
+        left: -30%;
+        right: auto;
+        top: -20%;
+      }
+    }
+    .project {
+      width: 70%;
+    }
+    .sketch {
+      width: 50%;
+      right: 20%;
+      top: 10%;
+      transform: none;
+    }
   }
 }
 </style>
