@@ -96,9 +96,25 @@ export default {
     margin-top: 4rem;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .site-footer {
-    padding: 6rem 2rem;
+    padding: 6rem 1rem 1rem;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+
+    .totop {
+      width: 30px;
+      height: 30px;
+      right: 1rem;
+      bottom: 2rem;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+  .footer-credits {
+    padding-right: 60px;
   }
 }
 </style>

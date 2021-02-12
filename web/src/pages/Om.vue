@@ -100,8 +100,26 @@ export default {
 }
 @media (max-width: 900px) {
   .about {
+    p {
+      max-width: 600px;
+    }
     &-lead {
-      margin-right: 0;
+      max-width: 600px;
+    }
+    &-main {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+@media (max-width: 700px) {
+  .about {
+    p {
+      max-width: 600px;
+    }
+    &-lead {
+      margin: 0 0 1rem;
+      font-size: 1.2rem;
+      max-width: 600px;
     }
     &-main {
       grid-template-columns: 1fr;

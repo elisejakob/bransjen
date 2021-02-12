@@ -1,7 +1,7 @@
 <template>
   <header class="site-header">
-    <g-link to="/">
-      <img v-if="$static.settings.logo" :src="$static.settings.logo.asset.url" class="logo" />
+    <g-link to="/" class="logo">
+      <img v-if="$static.settings.logo" :src="$static.settings.logo.asset.url" />
       <h1 v-else>{{$static.settings.title}}</h1>
     </g-link>
     <nav>
@@ -94,16 +94,26 @@ query {
   display: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .site-header {
-    display: block;
+    padding: 1rem;
+    .logo {
+      width: 50%;
+    }
     nav {
-      display: flex;
-      justify-content: space-between;
+      width: 50%;
+      display: block;
+      font-size: 1rem;
+      text-align: right;
       a {
-        margin: 0;
+        margin: 0 0 .6rem;
+        line-height: 1.2;
+        display: block;
       }
     }
+  }
+  .smiley {
+    display: none !important;
   }
 }
 </style>

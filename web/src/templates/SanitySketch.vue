@@ -204,5 +204,32 @@ export default {
     height: 40px;
   }
 }
+@media (max-width: 700px) {
+  .sketch-image {
+    max-width: none;
+    width: 100%;
+  }
+  .nav {
+    top: auto;
+    bottom: 0;
 
+    &.left, &.right {
+      width: 30px;
+      height: 30px;
+    }
+    &.left {
+      left: 1rem;
+    }
+    &.right {
+      right: 1rem;
+    }
+  }
+  .close {
+    padding: 1rem .5rem;
+    .icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
 </style>

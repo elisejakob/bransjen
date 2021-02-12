@@ -236,9 +236,22 @@ query project ($id: ID!) {
     grid-template-columns: repeat(8, 1fr);
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+  .project {
+    &-gallery {
+      .twocolumn {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
   .related-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+  .related-heading {
+    display: block;
+    h2 {
+      margin-bottom: 1rem;
+    }
   }
 }
 </style>

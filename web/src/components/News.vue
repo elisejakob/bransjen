@@ -62,4 +62,29 @@
     }
   }
 }
+@media (max-width: 900px) {
+  .news {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 0;
+    h2 {
+      grid-column: span 1;
+    }
+  }
+}
+@media (max-width: 700px) {
+  .news {
+    grid-template-columns: 1fr;
+    h2 {
+      grid-column: span 1;
+      font-size: 1.2rem;
+    }
+    article {
+      blockquote {
+        font-size: 1.4rem;
+        margin: 0 0 .5rem;
+      }
+    }
+  }
+}
 </style>
