@@ -4,6 +4,7 @@
       <img
         v-if="$page.project.mainImage"
         :src="$urlForImage($page.project.mainImage, $page.metadata.sanityOptions).width(1200).auto('format').url()"
+        :alt="$page.project.mainImage.alt"
         class="project-image"
       />
       <div class="project-text">
@@ -28,6 +29,7 @@
         <div v-if="item._type === 'figure'" class="onecolumn">
           <img
             :src="$urlForImage(item.asset.url, $page.metadata.sanityOptions).width(1200).auto('format').url()"
+            :alt="item.alt"
           />
           <p class="caption">{{ item.caption }}</p>
         </div>
@@ -35,6 +37,7 @@
           <figure>
             <img
               :src="$urlForImage(item.image1.asset.url, $page.metadata.sanityOptions).width(600).auto('format').url()"
+              :alt="item.image1.alt"
             />
             <figcaption v-if="item.image1.caption">
               <p class="caption">{{ item.image1.caption }}</p>
@@ -43,6 +46,7 @@
           <figure>
             <img
               :src="$urlForImage(item.image2.asset.url, $page.metadata.sanityOptions).width(600).auto('format').url()"
+              :alt="item.image1.alt"
             />
             <figcaption v-if="item.image2.caption">
               <p class="caption">{{ item.image2.caption }}</p>
@@ -153,6 +157,7 @@ query project ($id: ID!) {
           url
         }
         caption
+        alt
       }
       ... on SanityFigureTwoColumn {
         _type
@@ -161,12 +166,14 @@ query project ($id: ID!) {
             url
           }
           caption
+          alt
         }
         image2 {
           asset {
             url
           }
           caption
+          alt
         }
       }
       ... on SanityVideo {

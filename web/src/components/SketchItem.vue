@@ -4,6 +4,7 @@
       v-if="sketch.mainImage"
       class="sketch-image"
       :src="$urlForImage(sketch.mainImage, $page.metadata.sanityOptions).width(400).auto('format').url()"
+      :alt="sketch.mainImage.alt"
     />
     <div class="sketch-content">
       <g-link class="sketch-link" :to="`/div/${sketch.slug.current}`">Link</g-link>

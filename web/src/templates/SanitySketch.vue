@@ -7,6 +7,7 @@
           :src="$urlForImage($page.sketch.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
           class="sketch-image"
           :class="{ whitebg: $page.sketch.whitebg }"
+          :alt="$page.sketch.mainImage.alt"
         />
         <div class="sketch-text">{{ $page.sketch.title }}</div>
       </div>

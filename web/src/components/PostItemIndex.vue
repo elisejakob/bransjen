@@ -4,6 +4,7 @@
       v-if="project.indexImage"
       class="project-image index"
       :src="$urlForImage(project.indexImage, $page.metadata.sanityOptions).auto('format').url()"
+      :alt="project.indexImage.alt"
     />
     <div class="project-text">
       <h2 class="project-title" v-html="project.title" />

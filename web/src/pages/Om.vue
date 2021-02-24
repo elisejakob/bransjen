@@ -21,6 +21,7 @@
         <img
           v-if="$page.about.mainImage"
           :src="$urlForImage($page.about.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
+          :alt="$page.about.mainImage.alt"
         />
       </figure>
     </div>
@@ -46,6 +47,7 @@
         _id
         url
       }
+      alt
       hotspot {
         x
         y

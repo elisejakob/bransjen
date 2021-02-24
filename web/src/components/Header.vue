@@ -1,7 +1,7 @@
 <template>
   <header class="site-header">
     <g-link to="/" class="logo">
-      <img v-if="$static.settings.logo" :src="$static.settings.logo.asset.url" />
+      <img v-if="$static.settings.logo" :src="$static.settings.logo.asset.url" alt="Bransjens logo" />
       <h1 v-else>{{$static.settings.title}}</h1>
     </g-link>
     <nav>
