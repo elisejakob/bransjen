@@ -71,6 +71,23 @@ export default {
   components: {
     BlockContent,
     News
+  },
+  metaInfo() {
+    return {
+      title: 'Om',
+      meta: [
+        {
+          name: 'description',
+          key: 'description',
+          content: this.$page.about.excerpt
+        },
+        {
+          name: 'og:image',
+          key: 'og:image',
+          content: this.$page.about.mainImage.asset.url
+        }
+      ]
+    }
   }
 }
 </script>

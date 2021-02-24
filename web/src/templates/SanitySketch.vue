@@ -42,6 +42,7 @@ query sketch ($id: ID!) {
     mainImage {
       asset {
         _id
+        url
       }
       alt
     }
@@ -76,6 +77,9 @@ query sketch ($id: ID!) {
         }
       }
     }
+  }
+  settings: sanitySiteSettings(id: "siteSettings") {
+    description
   }
 }
 </page-query>
@@ -122,6 +126,23 @@ export default {
         }
       }
     },
+  },
+  metaInfo() {
+    return {
+      title: this.$page.sketch.title,
+      meta: [
+        {
+          name: 'description',
+          key: 'description',
+          content: this.$page.settings.description
+        },
+        {
+          name: 'og:image',
+          key: 'og:image',
+          content: this.$page.sketch.mainImage.asset.url
+        }
+      ]
+    }
   }
 }
 </script>

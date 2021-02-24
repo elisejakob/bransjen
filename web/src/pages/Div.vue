@@ -11,6 +11,9 @@
       dataset
     }
   }
+  settings: sanitySiteSettings(id: "siteSettings") {
+    description
+  }
 }
 </page-query>
 
@@ -20,6 +23,18 @@ import DivLayout from '~/layouts/Div'
 export default {
   components: {
     DivLayout
+  },
+  metaInfo() {
+    return {
+      title: 'Diverse',
+      meta: [
+        {
+          name: 'description',
+          key: 'description',
+          content: this.$page.settings.description
+        }
+      ]
+    }
   }
 }
 </script>

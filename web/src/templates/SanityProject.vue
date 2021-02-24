@@ -69,6 +69,23 @@ export default {
   components: {
     BlockContent,
     PostItem
+  },
+  metaInfo() {
+    return {
+      title: this.$page.project.title,
+      meta: [
+        {
+          name: 'description',
+          key: 'description',
+          content: this.$page.settings.description
+        },
+        {
+          name: 'og:image',
+          key: 'og:image',
+          content: this.$page.project.mainImage.asset.url
+        }
+      ]
+    }
   }
 }
 </script>
@@ -91,6 +108,7 @@ query project ($id: ID!) {
     mainImage {
       asset {
         _id
+        url
       }
       alt
     }
@@ -144,6 +162,9 @@ query project ($id: ID!) {
         }
       }
     }
+  }
+  settings: sanitySiteSettings(id: "siteSettings") {
+    description
   }
 }
 </page-query>
