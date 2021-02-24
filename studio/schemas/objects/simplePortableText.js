@@ -42,6 +42,11 @@ export default {
                 name: 'href',
                 type: 'url',
                 validation: Rule => Rule.uri({scheme: ['tel', 'mailto', 'http', 'https']})
+              },
+              {
+                title: 'Åpne i ny fane',
+                name: 'blank',
+                type: 'boolean'
               }
             ]
           }

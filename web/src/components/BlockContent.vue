@@ -31,6 +31,14 @@ export default {
               <figcaption>{node.caption}</figcaption>
             </figure>
           )
+        },
+        marks: {
+          link: ({mark, children}) => {
+            const { blank, href } = mark
+            return blank ?
+              <a href={href} target="_blank" rel="noopener">{children}</a>
+              : <a href={href}>{children}</a>
+          }
         }
       }
     }

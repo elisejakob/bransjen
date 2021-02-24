@@ -90,6 +90,10 @@ export default {
   .site-footer {
     padding: 6rem 4rem 2rem;
     grid-template-columns: 1fr 1fr;
+
+    .totop {
+      display: none;
+    }
   }
   .footer-credits {
     margin-top: 4rem;

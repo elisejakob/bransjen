@@ -117,6 +117,9 @@ export default {
       text-decoration: underline;
     }
   }
+  &-image {
+    margin-bottom: 2rem;
+  }
 }
 @media (max-width: 900px) {
   .about {
