@@ -14,6 +14,11 @@
   }
   settings: sanitySiteSettings(id: "siteSettings") {
     description
+    ogimg {
+      asset {
+        url
+      }
+    }
   }
 }
 </page-query>
@@ -33,6 +38,11 @@ export default {
           name: 'description',
           key: 'description',
           content: this.$page.settings.description
+        },
+        {
+          name: 'og:image',
+          key: 'og:image',
+          content: this.$page.settings.ogimg.asset.url
         }
       ]
     }
