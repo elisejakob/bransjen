@@ -50,7 +50,7 @@ export default {
     padding: 3rem 4rem;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .site-main {
     padding: 2rem 1rem;
   }

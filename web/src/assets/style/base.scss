@@ -101,3 +101,13 @@ ol {
 figure {
   margin: 0;
 }
+
+.text-content {
+  a {
+    text-decoration: underline;
+    color: var(--color-hover);
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

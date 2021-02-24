@@ -23,7 +23,8 @@
     }
   }
   sketches: allSanitySketch(
-    filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}}
+    filter: {slug: {current: {ne: null}}, publishedAt: {ne: null}},
+    sortBy: "publishedAt", order: DESC
   ) {
     edges {
       node {

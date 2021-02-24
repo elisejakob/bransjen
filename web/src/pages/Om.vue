@@ -6,16 +6,16 @@
           {{ $page.about.excerpt }}
         </p>
         <BlockContent
-          class="about-content"
+          class="about-content text-content"
           :blocks="$page.about._rawBody"
           v-if="$page.about._rawBody"
         />
-        <h2 class="about-clients-heading">Kunder</h2>
+        <!--<h2 class="about-clients-heading">Bransjens slavehandlere</h2>
         <BlockContent
-          class="about-clients"
+          class="about-clients text-content"
           :blocks="$page.about._rawClients"
           v-if="$page.about._rawClients"
-        />
+        />-->
       </div>
       <figure class="about-image">
         <img
@@ -101,16 +101,19 @@ export default {
     margin-bottom: 1rem;
   }
   &-lead {
-    margin: 0 0 2rem;
-    font-size: 1.4rem;
+    margin: 0 0 3rem;
+    font-size: 1.2rem;
+    max-width: 20rem;
   }
   &-content {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    font-size: .9rem;
   }
   &-clients {
     font-family: var(--sans-serif);
+    font-size: .8rem;
     &-heading {
-      font-size: 1.2em;
+      font-size: 1rem;
       text-decoration: underline;
     }
   }

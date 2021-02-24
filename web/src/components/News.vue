@@ -1,6 +1,6 @@
 <template>
   <div class="news" :style="{ color: $static.settings.footer.color.hex}">
-    <h2>Sagt om Bransjen</h2>
+    <!--<h2>Sagt om Bransjen</h2>-->
     <article v-for="(news, index) in $static.news.edges" :key="index">
       <blockquote>{{ news.node.quote }}</blockquote>
       <a :href="news.node.source.url">{{ news.node.source.text }}</a>
@@ -39,7 +39,7 @@
 <style lang="scss" scoped>
 .news {
   width: 100%;
-  margin: 0 auto;
+  margin: 4rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 7rem;

@@ -2,7 +2,7 @@
   <div class="projects">
     <div class="project-grid" :class="layoutClass">
       <div class="intro">
-        <p>{{ $static.about.excerpt }}</p>
+        <g-link to="/om"><p>{{ $static.about.excerpt }}</p></g-link>
       </div>
       <div v-for="(project, index) in selectedProjects" :key="project.node.id" :class="`wrapper wrapper-${index + 1}`">
         <div :class="`item item-${index + 1}`">
@@ -118,7 +118,9 @@ export default {
     },
     layoutClass() {
       const classes = ['layout-1', 'layout-2', 'layout-3']
-      return classes[1]
+      let random = Math.floor(Math.random()*(3-0))
+      //return classes[random]
+      return classes[0]
     }
   }
 }
@@ -132,9 +134,17 @@ export default {
   .intro {
     width: 50%;
     font-size: 1.2rem;
-
+    z-index: 1000;
+    a {
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
     p {
-      max-width: 24rem;
+      max-width: 20rem;
     }
   }
 
@@ -144,6 +154,10 @@ export default {
     text-align: center;
     &-2, &-4 {
       transform: translate(0, -40%);
+      margin-top: 2rem;
+    }
+    &-1 {
+      min-height: 22rem;
     }
   }
 
@@ -158,31 +172,64 @@ export default {
     margin: 0 auto;
     z-index: 10;
     text-align: left;
+    animation: none;
   }
 
   .sketch {
     position: absolute;
-    width: 16rem;
+    max-width: 12rem;
     top: 0;
     right: 0;
     z-index: 11;
+
+    max-height: 16rem;
   }
 
   &.layout-1 {
     .project-1 {
-      transform: translate(50%, 50%);
+      transform: translate(0, 0);
     }
     .project-2 {
-      transform: translate(0, 20%);
+      transform: translate(-20%, -10%);
     }
     .project-3 {
-      transform: translate(20%, 20%);
+      transform: translate(0, 0);
     }
     .project-4 {
-      transform: translate(20%, 20%);
+      transform: translate(0, 0);
     }
     .sketch-1 {
-      transform: translate(50%, 0);
+      transform: translate(-50%, -20%);
+      right: auto;
+      left: 0;
+    }
+    .sketch-2 {
+      transform: translate(50%, 80%);
+    }
+    .sketch-3 {
+      transform: translate(50%, 50%);
+    }
+    .sketch-4 {
+      transform: translate(-50%, -20%);
+      right: auto;
+      left: 0;
+    }
+  }
+  &.layout-2 {
+    .project-1 {
+      transform: translate(0, 0);
+    }
+    .project-2 {
+      transform: translate(0, 0);
+    }
+    .project-3 {
+      transform: translate(0, 0);
+    }
+    .project-4 {
+      transform: translate(0, 0);
+    }
+    .sketch-1 {
+      transform: translate(50%, -10%);
     }
     .sketch-2 {
       transform: translate(50%, 50%);
@@ -194,18 +241,18 @@ export default {
       transform: translate(50%, 70%);
     }
   }
-  &.layout-2 {
+  &.layout-3 {
     .project-1 {
-      transform: translate(50%, 50%);
+      transform: translate(0, 0);
     }
     .project-2 {
-      transform: translate(0, 20%);
+      transform: translate(0, 0);
     }
     .project-3 {
-      transform: translate(20%, 20%);
+      transform: translate(0, 0);
     }
     .project-4 {
-      transform: translate(20%, 20%);
+      transform: translate(0, 0);
     }
     .sketch-1 {
       transform: translate(50%, 0);
@@ -236,15 +283,20 @@ export default {
 }
 @media (max-width: 800px) {
   .project-grid {
-    .intro {
-      font-size: 1rem;
-    }
+    padding: 0 1rem;
     .intro, .wrapper {
       width: 100%;
       padding: 0;
-      margin-bottom: 4rem;
+      margin-bottom: 1.6rem;
       transform: none !important;
       text-align: left;
+    }
+    .intro {
+      font-size: 1.2rem;
+      margin: 0 -1rem 3rem;
+    }
+    .wrapper-1 {
+      min-height: 0;
     }
     .wrapper:nth-child(odd) {
       text-align: right;
@@ -255,14 +307,59 @@ export default {
         top: -20%;
       }
     }
-    .project {
-      width: 70%;
+    .wrapper:nth-child(3) {
+      text-align: center;
+      .sketch {
+        width: 50%;
+        left: -30%;
+        right: auto;
+        top: -20%;
+      }
     }
-    .sketch {
-      width: 50%;
-      right: 20%;
-      top: 10%;
-      transform: none;
+    &.layout-1, &.layout-2, &.layout-3 {
+      .project {
+        width: 70%;
+      }
+      .sketch {
+        width: 50%;
+        right: 20%;
+        top: 10%;
+        left: auto;
+      }
+      .project-1 {
+        transform: translate(0, 0);
+      }
+      .project-2 {
+        transform: translate(0, 0);
+      }
+      .project-3 {
+        transform: translate(0, 0);
+      }
+      .project-4 {
+        transform: translate(0, 0);
+      }
+      .sketch-1 {
+        transform: translate(50%, 0);
+      }
+      .sketch-2 {
+        transform: translate(50%, 0);
+      }
+      .sketch-3 {
+        transform: translate(50%, 50%);
+      }
+      .sketch-4 {
+        transform: translate(50%, 0);
+      }
+    }
+  }
+}
+@media (max-width: 600px) {
+  .project-grid {
+    .intro {
+      font-size: 16px;
+      p {
+        max-width: 17em;
+      }
     }
   }
 }

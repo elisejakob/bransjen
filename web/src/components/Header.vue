@@ -97,23 +97,50 @@ query {
 @media (max-width: 800px) {
   .site-header {
     padding: 1rem;
+    padding: 2rem 1rem 1rem;
+    flex-wrap: wrap;
     .logo {
-      width: 50%;
+      width: 100%;
+      img {
+        width: 50%;
+        max-width: 12rem;
+      }
     }
     nav {
-      width: 50%;
-      display: block;
-      font-size: 1rem;
-      text-align: right;
+      width: 100%;
+      max-width: 30rem;
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0 0 0;
       a {
-        margin: 0 0 .6rem;
+        margin: 0 0 .6rem 0;
         line-height: 1.2;
-        display: block;
+        display: inline-block;
+        font-weight: bold;
       }
     }
   }
   .smiley {
     display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    padding: 1rem;
+    padding: 2rem 1rem 1rem;
+    flex-wrap: wrap;
+
+    nav {
+      font-size: 14px;
+      max-width: 20rem;
+      a {
+        margin: 0 0 .6rem 0;
+        line-height: 1.2;
+        display: inline-block;
+        font-weight: bold;
+      }
+    }
   }
 }
 </style>

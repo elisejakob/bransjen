@@ -35,6 +35,7 @@
   ) {
     edges {
       node {
+        publishedAt
         id
         mainImage {
           asset {
@@ -142,9 +143,28 @@ export default {
     grid-template-columns: repeat(8, 1fr);
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .project-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .category-nav {
+    margin: -2.6rem 0 1rem;
+    line-height: 1.4;
+    .category {
+      margin-right: .8rem;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .category-nav {
+    margin: -2.6rem 0 1rem;
+    line-height: 1.4;
+    .category {
+      font-size: 12px;
+      margin-right: .8rem;
+    }
   }
 }
 </style>

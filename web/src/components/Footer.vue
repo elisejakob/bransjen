@@ -66,10 +66,12 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   font-family: var(--sans-serif);
+  position: relative;
+  padding: 0 10rem 6rem 6rem;
   .totop {
     position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    top: 0;
+    right: 1.5rem;
     text-align: right;
     width: 40px;
     height: 40px;
@@ -84,9 +86,6 @@ export default {
     text-decoration: underline;
   }
 }
-.site-footer {
-  padding: 6rem 6rem;
-}
 @media (max-width: 1200px) {
   .site-footer {
     padding: 6rem 4rem 2rem;
@@ -98,9 +97,9 @@ export default {
 }
 @media (max-width: 700px) {
   .site-footer {
-    padding: 6rem 1rem 1rem;
+    padding: 4rem 1rem 1rem;
     grid-template-columns: 1fr;
-    grid-gap: 2rem;
+    grid-gap: 0;
 
     .totop {
       width: 30px;
@@ -115,6 +114,10 @@ export default {
   }
   .footer-credits {
     padding-right: 60px;
+    margin-top: .6rem;
+  }
+  .footer-contact, .footer-address {
+    margin-bottom: 1.8rem;
   }
 }
 </style>

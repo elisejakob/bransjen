@@ -32,7 +32,7 @@ export default {
   },
   metaInfo() {
     return {
-      title: 'Om',
+      title: 'Forside',
       meta: [
         {
           name: 'description',

@@ -121,8 +121,8 @@ export default {
     cssVars() {
       if (this.$page.sketch.colors && this.$page.sketch.colors.gradient1.rgb && this.$page.sketch.colors.gradient2.rgb) {
         return {
-          '--color-gradient-1': 'rgba(' + this.$page.sketch.colors.gradient1.rgb.r + ',' + this.$page.sketch.colors.gradient1.rgb.g + ',' + this.$page.sketch.colors.gradient1.rgb.b + ',.8)',
-          '--color-gradient-2': 'rgba(' + this.$page.sketch.colors.gradient2.rgb.r + ',' + this.$page.sketch.colors.gradient2.rgb.g + ',' + this.$page.sketch.colors.gradient2.rgb.b + ',.8)',
+          '--color-gradient-1': 'rgba(' + this.$page.sketch.colors.gradient1.rgb.r + ',' + this.$page.sketch.colors.gradient1.rgb.g + ',' + this.$page.sketch.colors.gradient1.rgb.b + ',.92)',
+          '--color-gradient-2': 'rgba(' + this.$page.sketch.colors.gradient2.rgb.r + ',' + this.$page.sketch.colors.gradient2.rgb.g + ',' + this.$page.sketch.colors.gradient2.rgb.b + ',.92)',
         }
       }
     },
@@ -200,12 +200,12 @@ export default {
   transform: translateY(-50%);
 
   &.left {
-    left: 1.5rem;
+    left: 15rem;
     width: 40px;
     height: 40px;
   }
   &.right {
-    right: 1.5rem;
+    right: 15rem;
     width: 40px;
     height: 40px;
   }
@@ -214,11 +214,10 @@ export default {
 .close {
   box-sizing: content-box;
   position: fixed;
-  top: 0;
-  right: 0;
-  width: 40px;
-  height: 40px;
-  padding: 1.5rem;
+  top: 20%;
+  right: 15rem;
+  width: 36px;
+  height: 36px;
 
   .icon {
     width: 40px;
@@ -246,10 +245,14 @@ export default {
     }
   }
   .close {
-    padding: 1rem .5rem;
+    padding: 1rem;
+    top: 0;
+    right: 0;
+    width: 27px;
+    height: 27px;
     .icon {
-      width: 30px;
-      height: 30px;
+      width: 27px;
+      height: 27px;
     }
   }
 }

@@ -29,14 +29,25 @@
           <img
             :src="$urlForImage(item.asset.url, $page.metadata.sanityOptions).width(1200).auto('format').url()"
           />
+          <p class="caption">{{ item.caption }}</p>
         </div>
         <div v-if="item._type === 'figureTwoColumn'" class="twocolumn">
-          <img
-            :src="$urlForImage(item.image1.asset.url, $page.metadata.sanityOptions).width(600).auto('format').url()"
-          />
-          <img
-            :src="$urlForImage(item.image2.asset.url, $page.metadata.sanityOptions).width(600).auto('format').url()"
-          />
+          <figure>
+            <img
+              :src="$urlForImage(item.image1.asset.url, $page.metadata.sanityOptions).width(600).auto('format').url()"
+            />
+            <figcaption v-if="item.image1.caption">
+              <p class="caption">{{ item.image1.caption }}</p>
+            </figcaption>
+          </figure>
+          <figure>
+            <img
+              :src="$urlForImage(item.image2.asset.url, $page.metadata.sanityOptions).width(600).auto('format').url()"
+            />
+            <figcaption v-if="item.image2.caption">
+              <p class="caption">{{ item.image2.caption }}</p>
+            </figcaption>
+          </figure>
         </div>
         <div v-if="item._type === 'video'" class="video">
           <video controls>
@@ -141,6 +152,7 @@ query project ($id: ID!) {
         asset {
           url
         }
+        caption
       }
       ... on SanityFigureTwoColumn {
         _type
@@ -148,11 +160,13 @@ query project ($id: ID!) {
           asset {
             url
           }
+          caption
         }
         image2 {
           asset {
             url
           }
+          caption
         }
       }
       ... on SanityVideo {
@@ -231,6 +245,14 @@ query project ($id: ID!) {
       grid-template-columns: 1fr 1fr;
       grid-gap: 2rem;
     }
+    .caption {
+      width: 50%;
+      font-size: .9rem;
+    }
+    figcaption .caption {
+      width: 100%;
+      font-size: .9rem;
+    }
   }
 
 }
@@ -251,6 +273,9 @@ query project ($id: ID!) {
   display: grid;
   grid-gap: var(--spacing-m);
   grid-template-columns: repeat(8, 1fr);
+  .project {
+    margin: 0;
+  }
 }
 @media (max-width: 1000px) {
   .related-grid {
