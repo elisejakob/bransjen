@@ -200,12 +200,12 @@ export default {
   transform: translateY(-50%);
 
   &.left {
-    left: 15rem;
+    left: 18%;
     width: 40px;
     height: 40px;
   }
   &.right {
-    right: 15rem;
+    right: 18%;
     width: 40px;
     height: 40px;
   }
@@ -215,13 +215,13 @@ export default {
   box-sizing: content-box;
   position: fixed;
   top: 20%;
-  right: 15rem;
+  right: calc(18% + 4px);
   width: 36px;
   height: 36px;
 
   .icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 }
 @media (max-width: 700px) {
