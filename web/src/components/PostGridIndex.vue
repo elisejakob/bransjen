@@ -131,6 +131,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  margin-bottom: 0;
   .intro {
     width: 50%;
     font-size: 1.2rem;
@@ -158,6 +159,9 @@ export default {
     }
     &-1 {
       min-height: 22rem;
+    }
+    &-4 {
+      margin-bottom: -6%;
     }
   }
 

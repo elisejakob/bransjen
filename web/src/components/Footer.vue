@@ -16,9 +16,6 @@
       v-if="$static.settings.footer._rawCredits"
       style="color: black; font-size: .8rem;"
     />
-    <div class="totop" @click="toTop()">
-      <img src="/graphics/arrow-left.svg" alt="Pil til venstre" />
-    </div>
   </footer>
 </template>
 
@@ -49,14 +46,6 @@ import BlockContent from '~/components/BlockContent'
 export default {
   components: {
     BlockContent
-  },
-  methods: {
-    toTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      })
-    }
   }
 }
 </script>
@@ -67,33 +56,16 @@ export default {
   grid-template-columns: 1fr 1fr 1fr;
   font-family: var(--sans-serif);
   position: relative;
-  padding: 0 10rem 6rem 6rem;
-  .totop {
-    position: absolute;
-    top: 0;
-    right: 1.5rem;
-    text-align: right;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    img {
-      width: 40px;
-      height: 40px;
-      transform: rotate(90deg);
-    }
-  }
+  padding: 0 6rem 6rem 6rem;
+  grid-gap: 2rem;
   a {
     text-decoration: underline;
   }
 }
 @media (max-width: 1200px) {
   .site-footer {
-    padding: 6rem 4rem 2rem;
+    padding: 0 4rem 2rem;
     grid-template-columns: 1fr 1fr;
-
-    .totop {
-      display: none;
-    }
   }
   .footer-credits {
     margin-top: 4rem;
@@ -104,17 +76,6 @@ export default {
     padding: 4rem 1rem 1rem;
     grid-template-columns: 1fr;
     grid-gap: 0;
-
-    .totop {
-      width: 30px;
-      height: 30px;
-      right: 1rem;
-      bottom: 2rem;
-      img {
-        width: 30px;
-        height: 30px;
-      }
-    }
   }
   .footer-credits {
     padding-right: 60px;

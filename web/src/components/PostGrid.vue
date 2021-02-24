@@ -118,6 +118,7 @@ export default {
   display: grid;
   grid-gap: var(--spacing-m);
   grid-template-columns: repeat(12, 1fr);
+  margin-bottom: 6rem;
 }
 
 .category-nav {
