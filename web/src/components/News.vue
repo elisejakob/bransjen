@@ -40,6 +40,7 @@
 <style lang="scss" scoped>
 .news {
   width: 100%;
+  max-width: 1400px;
   margin: 4rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;

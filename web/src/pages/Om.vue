@@ -100,7 +100,8 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 3rem;
-    margin-bottom: 1rem;
+    max-width: 1400px;
+    margin: 0 auto 1rem;
   }
   &-lead {
     margin: 0 0 3rem;
@@ -123,28 +124,27 @@ export default {
     margin-bottom: 2rem;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 800px) {
   .about {
     p {
       max-width: 600px;
     }
     &-lead {
-      max-width: 600px;
+      font-size: 1rem;
+      margin: 0 0 3rem;
+      max-width: 17em;
     }
     &-main {
       grid-template-columns: 1fr;
     }
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .about {
-    p {
-      max-width: 600px;
-    }
     &-lead {
-      margin: 0 0 1rem;
-      font-size: 1.2rem;
-      max-width: 600px;
+      font-size: 1rem;
+      margin: 0 0 2rem;
+      max-width: 17em;
     }
     &-main {
       grid-template-columns: 1fr;

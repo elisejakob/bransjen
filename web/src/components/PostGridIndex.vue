@@ -143,6 +143,9 @@ export default {
         color: inherit;
         text-decoration: none;
       }
+      display: block;
+      max-width: 700px;
+      margin: 0 0 0 auto;
     }
     p {
       max-width: 20rem;
