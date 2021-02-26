@@ -4,7 +4,7 @@
       <div class="sketch-image-wrapper">
         <img
           v-if="$page.sketch.mainImage"
-          :src="$urlForImage($page.sketch.mainImage, $page.metadata.sanityOptions).width(600).auto('format').url()"
+          :src="$urlForImage($page.sketch.mainImage, $page.metadata.sanityOptions).width(800).auto('format').url()"
           class="sketch-image"
           :class="{ whitebg: $page.sketch.whitebg }"
           :alt="$page.sketch.mainImage.alt"

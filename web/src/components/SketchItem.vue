@@ -3,7 +3,7 @@
     <g-image
       v-if="sketch.mainImage"
       class="sketch-image"
-      :src="$urlForImage(sketch.mainImage, $page.metadata.sanityOptions).width(400).auto('format').url()"
+      :src="$urlForImage(sketch.mainImage, $page.metadata.sanityOptions).width(800).auto('format').url()"
       :alt="sketch.mainImage.alt"
     />
     <div class="sketch-content">
