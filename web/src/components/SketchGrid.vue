@@ -1,13 +1,20 @@
 <template>
   <div class="projects">
     <ClientOnly>
-      <VueMasonryWall :items="$static.sketches.edges" :options="options">
+      <VueMasonryWall :items="$static.sketches.edges" :options="options" ref="wall">
         <template v-slot:default="{item}">
-          <SketchItem
-            :key="item.node.id"
-            :sketch="item.node"
-            :metadata="$static.metadata"
-          />
+          <div class="sketch" :key="item.node.id">
+            <g-image
+              v-if="item.node.mainImage"
+              class="sketch-image"
+              :src="$urlForImage(item.node.mainImage, $page.metadata.sanityOptions).width(800).auto('format').url()"
+              :alt="item.node.mainImage.alt"
+              @load="loaded()"
+            />
+            <div class="sketch-content">
+              <g-link class="sketch-link" :to="`/div/${item.node.slug.current}`">Link</g-link>
+            </div>
+          </div>
         </template>
       </VueMasonryWall>
     </ClientOnly>
@@ -63,6 +70,7 @@ export default {
   },
   data() {
     return {
+      imageloaded: 0,
       options: {
         width: 300,
         padding: {
@@ -72,6 +80,17 @@ export default {
         }
       }
     }
+  },
+  methods: {
+    loaded() {
+      this.imageloaded++;
+      if (this.imageloaded === this.$static.sketches.edges.length) {
+        this.imagesLoaded()
+      }
+    },
+    imagesLoaded() {
+      this.$refs.wall.redraw();
+    }
   }
 }
 </script>
@@ -80,5 +99,30 @@ export default {
 .projects {
   width: 1200;
   margin: 0 auto;
+}
+.sketch {
+  position: relative;
+
+  &-image {
+    display: block;
+    width: 100%;
+  }
+
+  &-title {
+    margin-top: 0;
+    font-size: 2rem;
+  }
+
+  &-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    text-indent: -9999px;
+    z-index: 0;
+  }
 }
 </style>
