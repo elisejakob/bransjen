@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <PostGridIndex />
+    <PostGridIndex :key="$store.state.count" />
   </Layout>
 </template>
 

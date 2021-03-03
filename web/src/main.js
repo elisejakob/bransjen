@@ -7,13 +7,28 @@ import DefaultLayout from '~/layouts/Default.vue'
 // Import image url builder
 import urlForImage from './utils/urlForImage'
 
+import Vuex from 'vuex'
+
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
-export default function(Vue, { router, head, isClient }) {
+export default function(Vue, { router, head, isClient, appOptions }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 
   // Inject global image URL builder
   Vue.prototype.$urlForImage = urlForImage
+
+  Vue.use(Vuex)
+
+  appOptions.store = new Vuex.Store({
+    state: {
+      count: 0
+    },
+    mutations: {
+      increment (state) {
+        state.count++
+      }
+    }
+  })
 
   // Do stuff before next page load
   router.beforeEach((to, from, next) => {

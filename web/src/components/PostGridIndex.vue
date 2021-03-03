@@ -107,21 +107,33 @@ export default {
     PostItemIndex,
     SketchItem
   },
+  data() {
+    return {
+      shuffledProjects: [],
+      shuffledSketches: []
+    }
+  },
   computed: {
     selectedProjects() {
-      let shuffledProjects = this.$static.projects.edges.sort(() => 0.5 - Math.random());
-      return shuffledProjects.slice(0, 4);
+      return this.shuffledProjects.slice(0, 4);
     },
     selectedSketches() {
-      let shuffledSketches = this.$static.sketches.edges.sort(() => 0.5 - Math.random());
-      return shuffledSketches.slice(0, 4);
+      return this.shuffledSketches.slice(0, 4);
     },
     layoutClass() {
       const classes = ['layout-1', 'layout-2', 'layout-3']
       let random = Math.floor(Math.random()*(3-0))
-      //return classes[random]
-      return classes[0]
+      return classes[random]
     }
+  },
+  methods: {
+    shuffle() {
+      this.shuffledProjects = this.$static.projects.edges.sort(() => 0.5 - Math.random());
+      this.shuffledSketches = this.$static.sketches.edges.sort(() => 0.5 - Math.random());
+    }
+  },
+  mounted() {
+    this.shuffle()
   }
 }
 </script>
@@ -224,28 +236,28 @@ export default {
   }
   &.layout-2 {
     .project-1 {
-      transform: translate(0, 0);
+      transform: translate(10%, 0);
     }
     .project-2 {
-      transform: translate(0, 0);
+      transform: translate(-20%, 0);
     }
     .project-3 {
-      transform: translate(0, 0);
+      transform: translate(0, 20%);
     }
     .project-4 {
       transform: translate(0, 0);
     }
     .sketch-1 {
-      transform: translate(50%, -10%);
+      transform: translate(-120%, -16%);
     }
     .sketch-2 {
-      transform: translate(50%, 50%);
+      transform: translate(40%, 30%);
     }
     .sketch-3 {
-      transform: translate(50%, 50%);
+      transform: translate(50%, -40%);
     }
     .sketch-4 {
-      transform: translate(50%, 70%);
+      transform: translate(80%, 70%);
     }
   }
   &.layout-3 {
@@ -262,10 +274,10 @@ export default {
       transform: translate(0, 0);
     }
     .sketch-1 {
-      transform: translate(50%, 0);
+      transform: translate(60%, 20%);
     }
     .sketch-2 {
-      transform: translate(50%, 50%);
+      transform: translate(-130%, -30%);
     }
     .sketch-3 {
       transform: translate(50%, 50%);

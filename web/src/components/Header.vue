@@ -8,9 +8,9 @@
       <g-link to="/om">Om Bransjen</g-link>
       <g-link to="/prosjekter">Prosjekter</g-link>
       <g-link to="/div">Diverse</g-link>
-      <a class="smiley" href="/">
-        <img class="sad" src="/graphics/smiley-no.svg" alt="Smiley som ser litt psycho ut" />
-        <img class="happy" src="/graphics/smiley.svg" alt="Smiley som ser litt psycho ut" />
+      <a class="smiley" href="/" @click="refreshIndexGrid()">
+        <img class="sad" src="/graphics/smiley-no.svg" alt="Smiley som ser trist men litt psycho ut" />
+        <img class="happy" src="/graphics/smiley.svg" alt="Smiley som ser glad men litt psycho ut" />
       </a>
     </nav>
   </header>
@@ -34,6 +34,16 @@ query {
   }
 }
 </static-query>
+
+<script>
+export default {
+  methods: {
+    refreshIndexGrid() {
+      this.$store.commit('increment')
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .site-header {
