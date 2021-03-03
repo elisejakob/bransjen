@@ -183,6 +183,7 @@ export default {
   .item {
     display: inline-block;
     position: relative;
+    animation: enter .24s ease-in forwards;
   }
 
   .project {
@@ -223,7 +224,7 @@ export default {
       left: 0;
     }
     .sketch-2 {
-      transform: translate(50%, 80%);
+      transform: translate(30%, 80%);
     }
     .sketch-3 {
       transform: translate(50%, 50%);
@@ -251,7 +252,7 @@ export default {
       transform: translate(-120%, -16%);
     }
     .sketch-2 {
-      transform: translate(40%, 30%);
+      transform: translate(20%, -30%);
     }
     .sketch-3 {
       transform: translate(50%, -40%);
@@ -285,6 +286,14 @@ export default {
     .sketch-4 {
       transform: translate(50%, 70%);
     }
+  }
+}
+@keyframes enter {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
   }
 }
 @media (max-width: 1600px) {
